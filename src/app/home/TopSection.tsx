@@ -6,11 +6,11 @@ const HomepageTopSection: React.FC = () => {
     <section className="main-bg-color">
       <div className="container-fluid pos-relative pt-lg-45">
         <div className="row">
-          <div className="col-10 col-sm-8 offset-1 offset-sm-2 col-md-4 offset-md-8 px-0">
+          <div className="col-10 col-sm-8 offset-1 offset-sm-4 col-md-4 offset-md-8 px-0">
             <Image width={600} height={650} className="img-full" src="/assets/img/banner-portrait-1.png" alt="Bengt Johansson" />
           </div>
         </div>
-        <div className="overlay-md pt-lg-45">
+        <div className="overlay-sm">
           <div className="container d-flex flex-column h-100">
             <div className="row align-items-center">
               <div className="col-12 col-sm-8 col-md-6 text-center text-sm-start py-30 pt-xl-75">
