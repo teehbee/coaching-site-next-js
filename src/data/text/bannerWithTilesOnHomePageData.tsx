@@ -9,7 +9,7 @@ const bannerWithTileHomepageData: bannerWithTileHomepageData = {
   headline: "Tjeneste 1",
   textContent: "Det är inte rådgivning –det är en process som väcker mod, klarhet och riktning.",
   linkText: "Les mer om coaching",
-  linkDestination: "/tjeneste-1",
+  linkDestination: "/coaching",
 };
 
 export default bannerWithTileHomepageData;

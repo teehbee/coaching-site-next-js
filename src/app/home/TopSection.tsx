@@ -17,7 +17,7 @@ const HomepageTopSection: React.FC = () => {
                   <h1 className="fs-2-rem-lg-4rem pos-relative custom-border-bottom custom-border-bottom-25-percent-tc-sm-ts">Bengt Johansson</h1>
                 </div>
                 <div className="fs-1-5-rem-lg-2rem pb-30">Lederskapsutvikling & Coaching</div>
-                <Link className="btn btn-primary align-self-center align-self-lg-start" href="/">
+                <Link className="btn btn-primary align-self-center align-self-lg-start" href="/kontakt#contact-form">
                   Kontakt meg i dag
                 </Link>
               </div>
