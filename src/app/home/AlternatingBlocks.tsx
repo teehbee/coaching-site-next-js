@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { frontpageAlternatingBlocksData as blocks } from "../../data/text";
 
 const HomepageAlternatingBlocks: React.FC = () => {
@@ -11,7 +12,7 @@ const HomepageAlternatingBlocks: React.FC = () => {
           return (
             <div key={i} className="row pos-relative pb-60 align-items-center">
               <div className={`col-12 col-lg-6 ${!isEven ? "offset-lg-4" : "offset-lg-2"}`}>
-                <img className="img-full border-radius-5" src={block.image} alt="" />
+                <Image width={636} height={477} className="img-full border-radius-5" src={block.image} alt="" />
               </div>
               <div className={`col-10 col-lg-4 offset-1 offset-lg-0 text-center text-lg-start dark-bg-color border-radius-5 p-30 p-lg-45 mt--75 mt-lg-0 ${isEven ? "text-overlay-right" : "text-overlay-left"}`}>
                 <h2 className="mb-15 custom-border-bottom pos-relative custom-border-bottom-25-percent-tc-lg-te">Overskrift</h2>

@@ -1,8 +1,10 @@
+import Image from "next/image";
+
 const TopBanner: React.FC = () => {
   return (
     <section className="p-0">
       <div className="container-fluid pos-relative p-0">
-        <img className="img-cover h-60-md-80vh" src="/assets/img/placeholder/kenny-eliason-1-aA2Fadydc-unsplash.jpg" alt="placeholderbilde" />
+        <Image width={1920} height={650} className="img-cover h-60-md-80vh" src="/assets/img/placeholder/kenny-eliason-1-aA2Fadydc-unsplash.jpg" alt="placeholderbilde" />
         <div className="overlay-lg d-flex align-items-end justify-content-center">
           <div className="container">
             <div className="row px-15 px-lg-0">

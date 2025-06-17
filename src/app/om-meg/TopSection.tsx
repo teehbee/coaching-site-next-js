@@ -1,10 +1,12 @@
+import Image from "next/image";
+
 const TopSection: React.FC = () => {
   return (
     <section className="pos-relative pb-45 pb-lg-90 main-bg-color">
       <div className="container">
         <div className="row align-items-center flex-sm-row-reverse justify-content-center text-center text-md-start">
           <div className="col-12 col-md-5 z-index-md-100 mb-30 mb-lg-0">
-            <img className="img-cover mw-md-400px border-radius-5" src="/assets/img/kontor-portrett.jpg" alt="Bengt Johansson" />
+            <Image width={520} height={740} className="img-cover mw-md-400px border-radius-5" src="/assets/img/kontor-portrett.jpg" alt="Bengt Johansson" />
           </div>
           <div className="col-12 col-md-7 z-index-md-100 pr-md-30 pr-lg-60 mt-xl--75">
             <div className="mb-30">

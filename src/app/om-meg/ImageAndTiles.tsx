@@ -1,10 +1,12 @@
+import Image from "next/image";
+
 const ImageAndTiles: React.FC = () => {
   return (
     <section className="pb-45 pb-lg-90 pos-relative alt-bg-color">
       <div className="container">
         <div className="row">
           <div className="col-12 col-lg-7">
-            <img className="img-full border-radius-5" src="/assets/img/actionbilde1.jpg" alt="Bengt i aksjon" />
+            <Image width={740} height={550} className="img-full border-radius-5" src="/assets/img/actionbilde1.jpg" alt="Bengt i aksjon" />
           </div>
         </div>
       </div>

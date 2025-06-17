@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 type BannerLeftContentProps = {
   image: string;
   title: string;
@@ -8,7 +10,7 @@ const BannerLeftContent: React.FC<BannerLeftContentProps> = ({ image, title, tex
   return (
     <section className="p-0">
       <div className="container-fluid pos-relative px-0">
-        <img className="img-cover img-350h-600" src={image} alt="" />
+        <Image width={1920} height={600} className="img-cover img-350h-600" src={image} alt="" />
         <div className="overlay d-flex align-items-end align-items-md-center justify-content-center">
           <div className="container">
             <div className="row px-15 mb-30 mb-lg-0">
