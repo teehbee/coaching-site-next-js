@@ -1,0 +1,82 @@
+// Review animation
+
+.review-content {
+  opacity: 1;
+  transition: opacity 0.2s ease-in-out;
+  &.fade-out {
+    opacity: 0;
+  }
+}
+
+// Review pagination
+
+.review-pagination {
+  .circle-empty,
+  .circle-filled {
+    width: 15px;
+    height: 15px;
+    stroke-width: 1px;
+    margin: 0 2px;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+  }
+
+  .circle-empty {
+    stroke: #c2b08d;
+    fill: none;
+
+    &:hover {
+      fill: #c2b08d;
+      stroke: #c2b08d;
+    }
+  }
+
+  .circle-filled {
+    stroke: none;
+    fill: #c2b08d;
+
+    &:hover {
+      fill: #c2b08d;
+    }
+  }
+}
+
+// Timeline for resume
+
+// Vertical line for resume
+.timeline-col::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -25px;
+  width: 2px;
+  background-color: #333;
+  z-index: 0;
+}
+
+// resume diamon marker
+.timeline-marker {
+  position: absolute;
+  top: 10px;
+  left: -30px;
+  width: 12px;
+  height: 12px;
+  background-color: #333;
+  transform: rotate(45deg);
+  z-index: 1;
+}
+
+// Media queries
+
+@media screen and (min-width: 992px) {
+  .text-overlay-right {
+    position: absolute;
+    right: 10%;
+  }
+
+  .text-overlay-left {
+    position: absolute;
+    left: 10%;
+  }
+}
