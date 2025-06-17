@@ -8,7 +8,7 @@ function Footer() {
       <div className="container text-center">
         <div className="row align-items-end border-bottom pb-15">
           <div className="d-none d-lg-flex col-lg-4 justify-content-end">
-            <Link className="pr-50" href="coachin">
+            <Link className="pr-50" href="/coaching">
               Coaching
             </Link>
             <Link className="pr-50" href="/om-meg">
@@ -24,7 +24,7 @@ function Footer() {
             </Link>
           </div>
           <div className="d-none d-lg-flex col-lg-4 justify-content-start">
-            <Link className="pl-50" href="coachin">
+            <Link className="pl-50" href="kontakt">
               Kontakt
             </Link>
             <Link className="pl-50" href="personvern">
@@ -32,13 +32,13 @@ function Footer() {
             </Link>
           </div>
           <div className="d-flex d-lg-none col-12 justify-content-between pt-15">
-            <Link className="px-15" href="coachin">
+            <Link className="px-15" href="coaching">
               Coaching
             </Link>
             <Link className="px-15" href="om-meg">
               Om meg
             </Link>
-            <Link className="px-15" href="coachin">
+            <Link className="px-15" href="kontakt">
               Kontakt
             </Link>
             <Link className="px-15" href="personvern">
@@ -72,7 +72,10 @@ function Footer() {
           <div className="col-12 fs-0-75-rem-lg-0-875rem d-flex justify-content-between py-15">
             <div>© 2025 Bengan. Alle rettigheter reservert.</div>
             <div>
-              Nettside og design levert av <a href="https://thbergseng-portfolio-2.netlify.app/">THbergseng Design</a>{" "}
+              Nettside og design levert av{" "}
+              <a target="_blank" href="https://thbergseng-portfolio-2.netlify.app/">
+                THbergseng Design
+              </a>
             </div>
           </div>
         </div>
