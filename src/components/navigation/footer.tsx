@@ -31,17 +31,17 @@ function Footer() {
               Personvern
             </Link>
           </div>
-          <div className="d-flex d-lg-none col-12 justify-content-between pt-15">
-            <Link className="px-15" href="coaching">
+          <div className="d-flex flex-wrap d-lg-none col-12 justify-content-between pt-15">
+            <Link className="px-15 pb-5" href="coaching">
               Coaching
             </Link>
-            <Link className="px-15" href="om-meg">
+            <Link className="px-15 pb-5" href="om-meg">
               Om meg
             </Link>
-            <Link className="px-15" href="kontakt">
+            <Link className="px-15 pb-5" href="kontakt">
               Kontakt
             </Link>
-            <Link className="px-15" href="personvern">
+            <Link className="px-15 pb-5" href="personvern">
               Personvern
             </Link>
           </div>
