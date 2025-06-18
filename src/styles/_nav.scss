@@ -39,6 +39,12 @@ header {
   }
 }
 
+.nav-active {
+  text-decoration: underline !important;
+  text-decoration-color: $socials-hover-color !important;
+  text-underline-offset: 3px;
+}
+
 .nav-container {
   .nav-desktop-links {
     .nav-desktop-link {

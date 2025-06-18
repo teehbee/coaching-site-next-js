@@ -19,16 +19,16 @@ const Navbar: React.FC<NavbarProps> = ({ onMenuToggle }) => {
         </Link>
         <div className="nav-desktop-and-menu-toggle d-flex align-items-center">
           <div className="nav-desktop-links d-none d-lg-block">
-            <NavLink activeClassName="my-active-class" className="nav-desktop-link" href="/">
+            <NavLink activeClassName="nav-active" className="nav-desktop-link" href="/">
               Forside
             </NavLink>
-            <NavLink activeClassName="my-active-class" className="nav-desktop-link" href="/coaching">
+            <NavLink activeClassName="nav-active" className="nav-desktop-link" href="/coaching">
               Coaching
             </NavLink>
-            <NavLink activeClassName="my-active-class" className="nav-desktop-link" href="/om-meg">
+            <NavLink activeClassName="nav-active" className="nav-desktop-link" href="/om-meg">
               Om meg
             </NavLink>
-            <NavLink activeClassName="my-active-class" className="nav-desktop-link" href="/kontakt">
+            <NavLink activeClassName="nav-active" className="nav-desktop-link" href="/kontakt">
               Kontakt
             </NavLink>
           </div>

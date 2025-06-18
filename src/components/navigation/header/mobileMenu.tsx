@@ -1,5 +1,6 @@
 "use-client";
 
+import Image from "next/image";
 import { NavLink } from "@/components/reusable";
 import Link from "next/link";
 import { useRef } from "react";
@@ -19,7 +20,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ onClose, isMenuOpen }) => {
       <div ref={menuRef} className={`mobile-menu ${isMenuOpen ? "open" : ""}`}>
         <div className="mobile-menu-header d-flex justify-content-between">
           <Link href="/">
-            <img src="/assets/logo/logo-sm.png" alt="logo" />
+            <Image width={220} height={70} src="/assets/logo/logo-sm.png" alt="logo" />
           </Link>
           <button onClick={onClose} className="mobile-menu-close" aria-label="Close menu">
             <div className="bar bar1" />
@@ -28,16 +29,16 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ onClose, isMenuOpen }) => {
         </div>
         <div className="mobile-menu-wrapper d-flex flex-column justify-content-center">
           <nav className="d-flex flex-column text-center">
-            <NavLink activeClassName="my-active-class" href="/" onClick={onClose}>
+            <NavLink activeClassName="nav-active" href="/" onClick={onClose}>
               Forside
             </NavLink>
-            <NavLink activeClassName="my-active-class" href="/coaching" onClick={onClose}>
+            <NavLink activeClassName="nav-active" href="/coaching" onClick={onClose}>
               Coaching
             </NavLink>
-            <NavLink activeClassName="my-active-class" href="/om-meg" onClick={onClose}>
+            <NavLink activeClassName="nav-active" href="/om-meg" onClick={onClose}>
               Om meg
             </NavLink>
-            <NavLink activeClassName="my-active-class" href="/kontakt" onClick={onClose}>
+            <NavLink activeClassName="nav-active" href="/kontakt" onClick={onClose}>
               Kontakt
             </NavLink>
           </nav>
