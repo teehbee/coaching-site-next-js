@@ -33,7 +33,7 @@ interface FrontpageLowerBanner {
 }
 
 interface ReviewSectionItem {
-  reviewSectionText: string;
+  reviewSectionText: PortableTextBlock[];
   reviewSectionName: string;
 }
 

@@ -1,8 +1,25 @@
-import { bannerWithTileHomepageData as tile } from "../../data/text";
+"use client";
+
+import { HomePageInterface } from "@/data/interface/frontpageInterface";
+import { useEffect, useState } from "react";
+import { client } from "../../lib/sanityClient";
+import { frontpageQuery } from "@/lib/queries";
+import { PortableText } from "@portabletext/react";
 import Link from "next/link";
 import Image from "next/image";
 
 const BannerWithTiles: React.FC = () => {
+  const [settings, setSettings] = useState<HomePageInterface | null>(null);
+
+  useEffect(() => {
+    client.fetch(frontpageQuery).then((data) => {
+      setSettings(data);
+    });
+  }, []);
+
+  if (!settings) {
+    return null;
+  }
   return (
     <section>
       <div className="container-fluid pos-relative px-0">
@@ -12,11 +29,13 @@ const BannerWithTiles: React.FC = () => {
             <div className="row px-15 mb-30 mb-lg-0">
               <div className="col-12 col-lg-5 offset-lg-7 dark-bg-color border-radius-5">
                 <div className="border-radius-5 d-flex flex-column text-center text-lg-start p-30">
-                  <h3 className=" mb-15 pos-relative custom-border-bottom custom-border-bottom-25-percent-tc-lg-te">{tile.headline}</h3>
-                  <div className="pb-15">{tile.textContent}</div>
+                  <h3 className=" mb-15 pos-relative custom-border-bottom custom-border-bottom-25-percent-tc-lg-te">{settings.frontpageLowerBanner.frontpageLowerBannerTitle}</h3>
+                  <div className="pb-15">
+                    <PortableText value={settings.frontpageLowerBanner.frontpageLowerBannerText} />
+                  </div>
                   <div>
-                    <Link className="btn btn-primary" href={tile.linkDestination}>
-                      {tile.linkText}
+                    <Link className="btn btn-primary" href={settings.frontpageLowerBanner.frontpageLowerBannerLinkDestination}>
+                      {settings.frontpageLowerBanner.frontpageLowerBannerLinkText}
                     </Link>
                   </div>
                 </div>
