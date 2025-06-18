@@ -1,10 +1,11 @@
 import TopSectionWithButton from "./TopSectionWithButton";
 import TextBoxes from "../../components/reusable/TextBoxes";
 import ContactForm from "./Form";
+import { Metadata } from "next";
 
 import { contactTextBoxesData } from "../../data/text";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Kontakt | Bengt Johansson",
   description: "Ta kontakt for mer informasjon om coaching og tjenester.",
   keywords: ["coaching", "kontakt", "psykolog", "rådgivning"],

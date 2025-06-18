@@ -2,8 +2,9 @@ import { LoopedReviews } from "../../components/reusable";
 import HomepageAlternatingBlocks from "./AlternatingBlocks";
 import HomepageTopSection from "./TopSection";
 import BannerWithTiles from "./BannerWithTiles";
+import { Metadata } from "next";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Kontakt | Mitt Firma",
   description: "Ta kontakt for å lære mer om våre tjenester.",
   keywords: ["coaching", "mental trening", "kontakt"],

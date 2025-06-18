@@ -1,12 +1,14 @@
 import { aboutTextBoxesData } from "../../data/text";
 
+import { Metadata } from "next";
+
 import TopSection from "./TopSection";
 import ImageAndTiles from "./ImageAndTiles";
 import Resume from "./Resume";
 import TextBoxes from "../../components/reusable/TextBoxes";
 import { LoopedReviews, BannerLeftContent } from "../../components/reusable";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Kontakt | Mitt Firma",
   description: "Ta kontakt for å lære mer om våre tjenester.",
   keywords: ["coaching", "mental trening", "kontakt"],

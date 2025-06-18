@@ -2,8 +2,9 @@ import AlternateImageTextTiles from "./AlternateTiles";
 import TopBanner from "./TopBanner";
 import { BannerLeftContent } from "../../components/reusable";
 import QuoteSection from "./QuoteSection";
+import { Metadata } from "next";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Kontakt | Mitt Firma",
   description: "Ta kontakt for å lære mer om våre tjenester.",
   keywords: ["coaching", "mental trening", "kontakt"],
