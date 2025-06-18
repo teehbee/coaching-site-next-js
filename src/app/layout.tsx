@@ -21,9 +21,13 @@ const openSans = Open_Sans({
 export const metadata: Metadata = {
   title: {
     default: "Bengt Johansson",
-    template: "%s | Mitt Firma",
+    template: "%s | Bengt Johansson",
   },
   description: "Offisiell nettside for Bengt Johansson – coaching og utvikling.",
+  robots: {
+    index: false,
+    follow: false,
+  },
 };
 
 export default function RootLayout({

@@ -1,7 +1,5 @@
 import { aboutTextBoxesData } from "../../data/text";
-
 import { Metadata } from "next";
-
 import TopSection from "./TopSection";
 import ImageAndTiles from "./ImageAndTiles";
 import Resume from "./Resume";

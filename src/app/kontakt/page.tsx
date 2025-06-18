@@ -6,7 +6,7 @@ import { Metadata } from "next";
 import { contactTextBoxesData } from "../../data/text";
 
 export const metadata: Metadata = {
-  title: "Kontakt | Bengt Johansson",
+  title: "Kontakt",
   description: "Ta kontakt for mer informasjon om coaching og tjenester.",
   keywords: ["coaching", "kontakt", "psykolog", "rådgivning"],
   openGraph: {

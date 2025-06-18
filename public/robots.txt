@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://coaching-site-next-js-git-main-teehbees-projects.vercel.app/
+
+# Sitemaps
+Sitemap: https://coaching-site-next-js-git-main-teehbees-projects.vercel.app/sitemap.xml
