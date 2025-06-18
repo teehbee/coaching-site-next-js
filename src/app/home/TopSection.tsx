@@ -7,7 +7,7 @@ const HomepageTopSection: React.FC = () => {
       <div className="container-fluid pos-relative pt-lg-45">
         <div className="row">
           <div className="col-10 col-sm-8 offset-1 offset-sm-4 col-md-4 offset-md-8 px-0">
-            <Image width={600} height={650} className="img-full" src="/assets/img/banner-portrait-1.png" alt="Bengt Johansson" />
+            <Image priority width={600} height={650} className="img-full" src="/assets/img/banner-portrait-1.png" alt="Bengt Johansson" />
           </div>
         </div>
         <div className="overlay-sm">
