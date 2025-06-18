@@ -1,10 +1,14 @@
 "use-client";
 
+import { useEffect, useState } from "react";
+import { client } from "../../../lib/sanityClient";
+import { globalSettingsQuery } from "@/lib/queries";
 import Image from "next/image";
 import { NavLink } from "@/components/reusable";
 import Link from "next/link";
 import { useRef } from "react";
 import { useMenuBehavior } from "../../../utils";
+import { SiteSettingsInterface } from "@/data/interface/siteSettingsInterface";
 
 interface MobileMenuProps {
   isMenuOpen: boolean;
@@ -14,13 +18,24 @@ interface MobileMenuProps {
 const MobileMenu: React.FC<MobileMenuProps> = ({ onClose, isMenuOpen }) => {
   const menuRef = useRef<HTMLDivElement>(null);
   useMenuBehavior({ isMenuOpen, menuRef, onClose });
+  const [settings, setSettings] = useState<SiteSettingsInterface | null>(null);
+
+  useEffect(() => {
+    client.fetch(globalSettingsQuery).then((data) => {
+      setSettings(data);
+    });
+  }, []);
+
+  if (!settings) {
+    return null;
+  }
 
   return (
     <div className={`menu-backdrop ${isMenuOpen ? "show" : ""}`}>
       <div ref={menuRef} className={`mobile-menu ${isMenuOpen ? "open" : ""}`}>
         <div className="mobile-menu-header d-flex justify-content-between">
           <Link href="/">
-            <Image width={220} height={70} src="/assets/logo/logo-sm.png" alt="logo" />
+            <Image width={178} height={54} src={settings.logoSmall.asset.url} alt={settings.logoSmall.alt || settings.siteTitle} />
           </Link>
           <button onClick={onClose} className="mobile-menu-close" aria-label="Close menu">
             <div className="bar bar1" />

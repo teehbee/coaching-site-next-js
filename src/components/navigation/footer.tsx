@@ -6,32 +6,10 @@ import { useEffect, useState } from "react";
 import { client } from "../../lib/sanityClient";
 import { globalSettingsQuery } from "@/lib/queries";
 import { FacebookIcon, InstagramIcon, LinkedinIcon } from "../../assets/icon";
-
-interface SiteSettings {
-  siteTitle: string;
-  logoSmall: {
-    asset: {
-      _id: string;
-      url: string;
-    };
-    alt?: string;
-  };
-  logoLarge: {
-    asset: {
-      _id: string;
-      url: string;
-    };
-    alt?: string;
-  };
-  contactPhone?: string;
-  contactEmail?: string;
-  facebookUrl?: string;
-  instagramUrl?: string;
-  linkedinUrl?: string;
-}
+import { SiteSettingsInterface } from "@/data/interface/siteSettingsInterface";
 
 function Footer() {
-  const [settings, setSettings] = useState<SiteSettings | null>(null);
+  const [settings, setSettings] = useState<SiteSettingsInterface | null>(null);
 
   useEffect(() => {
     client.fetch(globalSettingsQuery).then((data) => {
