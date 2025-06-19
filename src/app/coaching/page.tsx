@@ -1,7 +1,4 @@
-import AlternateImageTextTiles from "./AlternateTiles";
-import TopBanner from "./TopBanner";
-import BannerLeftContent from "./BannerLeftContent";
-import QuoteSection from "./QuoteSection";
+import { CoachingContent } from "./CoachingContent";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -25,15 +22,8 @@ export const metadata: Metadata = {
   },
 };
 
-function Coaching() {
-  return (
-    <>
-      <TopBanner />
-      <AlternateImageTextTiles />
-      <BannerLeftContent />
-      <QuoteSection />
-    </>
-  );
-}
+const CoachingPage = async () => {
+  return <CoachingContent />;
+};
 
-export default Coaching;
+export default CoachingPage;

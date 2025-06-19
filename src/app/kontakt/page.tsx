@@ -1,23 +1,20 @@
-import TopSectionWithButton from "./TopSectionWithButton";
-import ContactForm from "./Form";
 import { Metadata } from "next";
-import TextBoxes from "./TextBoxes";
+import { ContactContent } from "./ContactContent";
 
 export const metadata: Metadata = {
-  title: "Kontakt",
-  description: "Ta kontakt for mer informasjon om coaching og tjenester.",
-  keywords: ["coaching", "kontakt", "psykolog", "rådgivning"],
+  title: "Kontakt | Mitt Firma",
+  description: "Ta kontakt for å lære mer om våre tjenester.",
+  keywords: ["coaching", "mental trening", "kontakt"],
   openGraph: {
-    title: "Kontakt oss – Bengt Johansson",
-    description: "Vi hjelper deg gjerne. Kontakt oss i dag.",
+    title: "Kontakt oss – Mitt Firma",
+    description: "Slik kommer du i kontakt med oss.",
     url: "https://mittdomene.no/kontakt",
-    siteName: "Bengt Johansson",
+    siteName: "Mitt Firma",
     images: [
       {
-        url: "https://mittdomene.no/images/og-kontakt.jpg",
+        url: "https://mittdomene.no/images/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Kontakt oss-bilde",
       },
     ],
     locale: "no_NO",
@@ -25,14 +22,8 @@ export const metadata: Metadata = {
   },
 };
 
-const Contact: React.FC = () => {
-  return (
-    <>
-      <TopSectionWithButton />
-      <TextBoxes />
-      <ContactForm />
-    </>
-  );
+const ContactPage = async () => {
+  return <ContactContent />;
 };
 
-export default Contact;
+export default ContactPage;
