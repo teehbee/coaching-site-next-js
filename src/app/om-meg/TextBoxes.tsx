@@ -24,7 +24,7 @@ const TextBoxes: React.FC = () => {
         <div className="row">
           {settings.aboutPageTextBoxesSection.aboutPageTextBoxes.map((box, index) => (
             <div key={index} className="col-12 col-md-6 col-lg-3 mb-30 d-flex mh-150px">
-              <div className="border-full border-radius-5 text-center p-15">
+              <div className="border-full border-radius-5 text-center p-15 w-100">
                 <div className="pb-15">
                   <CheckedSymbol />
                 </div>
