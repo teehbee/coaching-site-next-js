@@ -2,20 +2,13 @@
 
 import Link from "next/link";
 
-import { useEffect, useState } from "react";
-import { client } from "../../lib/sanityClient";
+import { useSanityData } from "@/utils";
 import { globalSettingsQuery } from "@/lib/queries";
 import { FacebookIcon, InstagramIcon, LinkedinIcon } from "../../assets/icon";
 import { SiteSettingsInterface } from "@/data/interface/siteSettingsInterface";
 
 function Footer() {
-  const [settings, setSettings] = useState<SiteSettingsInterface | null>(null);
-
-  useEffect(() => {
-    client.fetch(globalSettingsQuery).then((data) => {
-      setSettings(data);
-    });
-  }, []);
+  const settings = useSanityData<SiteSettingsInterface>(globalSettingsQuery);
 
   if (!settings) {
     return null;

@@ -1,8 +1,8 @@
 "use client";
 
 import { QuoteIcon, CircleEmpty, CircleFilled } from "../../assets/icon";
-import { useState, useEffect } from "react";
-import { client } from "../../lib/sanityClient";
+import { useState } from "react";
+import { useSanityData } from "../../utils";
 import { useAutoLoop, useAnimatedReview } from "../../utils";
 import { frontpageQuery } from "@/lib/queries";
 import { HomePageInterface } from "@/data/interface/frontpageInterface";
@@ -10,33 +10,36 @@ import { PortableText } from "@portabletext/react";
 
 const LoopedReviews: React.FC = () => {
   const [paused, setPaused] = useState(false);
-  const [settings, setSettings] = useState<HomePageInterface | null>(null);
 
-  const { current, isAnimating, changeReview } = useAnimatedReview();
+  const settings = useSanityData<HomePageInterface>(frontpageQuery);
 
-  // Fetch data from Sanity
-  useEffect(() => {
-    client.fetch(frontpageQuery).then((data) => {
-      setSettings(data);
-    });
-  }, []);
-
-  // Extract review data
+  // Hent reviewData, fallback til tom array hvis ikke funnet
   const reviewData = settings?.reviewsSection?.ReviewSection || [];
 
-  // Automatically loop reviews
+  // Hook for animasjon + current review
+  const { current, isAnimating, changeReview } = useAnimatedReview();
+
+  // Hook for auto-looping
   useAutoLoop(
     () => {
-      changeReview((current + 1) % reviewData.length);
+      if (reviewData.length > 0) {
+        changeReview((current + 1) % reviewData.length);
+      }
     },
     5000,
     !paused && reviewData.length > 0
   );
 
-  if (!reviewData || reviewData.length === 0) {
+  // Tidlige returer må komme etter at hooks er kalt!
+  if (!settings) {
     return null;
   }
 
+  if (reviewData.length === 0) {
+    return null;
+  }
+
+  // Resten av JSX...
   return (
     <section className="main-bg-color">
       <div className="container pb-45 pg-lg-90">
@@ -59,4 +62,5 @@ const LoopedReviews: React.FC = () => {
     </section>
   );
 };
+
 export default LoopedReviews;

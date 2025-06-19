@@ -1,7 +1,6 @@
 "use-client";
 
-import { useEffect, useState } from "react";
-import { client } from "../../../lib/sanityClient";
+import { useSanityData } from "../../../utils";
 import { globalSettingsQuery } from "@/lib/queries";
 import Image from "next/image";
 import { NavLink } from "@/components/reusable";
@@ -18,13 +17,7 @@ interface MobileMenuProps {
 const MobileMenu: React.FC<MobileMenuProps> = ({ onClose, isMenuOpen }) => {
   const menuRef = useRef<HTMLDivElement>(null);
   useMenuBehavior({ isMenuOpen, menuRef, onClose });
-  const [settings, setSettings] = useState<SiteSettingsInterface | null>(null);
-
-  useEffect(() => {
-    client.fetch(globalSettingsQuery).then((data) => {
-      setSettings(data);
-    });
-  }, []);
+  const settings = useSanityData<SiteSettingsInterface>(globalSettingsQuery);
 
   if (!settings) {
     return null;

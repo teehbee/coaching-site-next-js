@@ -4,18 +4,11 @@ import Link from "next/link";
 import Image from "next/image";
 
 import { HomePageInterface } from "@/data/interface/frontpageInterface";
-import { useEffect, useState } from "react";
-import { client } from "../../lib/sanityClient";
 import { frontpageQuery } from "@/lib/queries";
+import { useSanityData } from "@/utils";
 
 const HomepageAlternatingBlocks: React.FC = () => {
-  const [settings, setSettings] = useState<HomePageInterface | null>(null);
-
-  useEffect(() => {
-    client.fetch(frontpageQuery).then((data) => {
-      setSettings(data);
-    });
-  }, []);
+  const settings = useSanityData<HomePageInterface>(frontpageQuery);
 
   if (!settings) {
     return null;

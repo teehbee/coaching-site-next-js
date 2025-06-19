@@ -1,7 +1,6 @@
 "use-client";
 
-import { useEffect, useState } from "react";
-import { client } from "../../../lib/sanityClient";
+import { useSanityData } from "@/utils";
 import { globalSettingsQuery } from "@/lib/queries";
 import Link from "next/link";
 import { NavLink } from "@/components/reusable";
@@ -12,13 +11,7 @@ interface NavbarProps {
 }
 
 const Navbar: React.FC<NavbarProps> = ({ onMenuToggle }) => {
-  const [settings, setSettings] = useState<SiteSettingsInterface | null>(null);
-
-  useEffect(() => {
-    client.fetch(globalSettingsQuery).then((data) => {
-      setSettings(data);
-    });
-  }, []);
+  const settings = useSanityData<SiteSettingsInterface>(globalSettingsQuery);
 
   if (!settings) {
     return null;

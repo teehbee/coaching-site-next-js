@@ -1,21 +1,15 @@
 "use client";
 
-import { HomePageInterface } from "@/data/interface/frontpageInterface";
-import { useEffect, useState } from "react";
-import { client } from "../../lib/sanityClient";
-import { frontpageQuery } from "@/lib/queries";
-import { PortableText } from "@portabletext/react";
 import Link from "next/link";
 import Image from "next/image";
 
-const BannerWithTiles: React.FC = () => {
-  const [settings, setSettings] = useState<HomePageInterface | null>(null);
+import { HomePageInterface } from "@/data/interface/frontpageInterface";
+import { frontpageQuery } from "@/lib/queries";
+import { PortableText } from "@portabletext/react";
+import { useSanityData } from "@/utils";
 
-  useEffect(() => {
-    client.fetch(frontpageQuery).then((data) => {
-      setSettings(data);
-    });
-  }, []);
+const BannerWithTiles: React.FC = () => {
+  const settings = useSanityData<HomePageInterface>(frontpageQuery);
 
   if (!settings) {
     return null;
