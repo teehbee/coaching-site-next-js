@@ -4,7 +4,6 @@ import { useSanityData } from "@/utils";
 import { aboutPageQuery } from "@/lib/queries";
 import { AboutPageInterface } from "@/data/interface/aboutPageInterface";
 import { PortableText } from "@portabletext/react";
-import { resumeData as data } from "../../data/text";
 
 const Resume: React.FC = () => {
   const settings = useSanityData<AboutPageInterface>(aboutPageQuery);
