@@ -40,6 +40,36 @@ export const frontpageQuery = `*[_type == "homePage"][0]{
     }
 }`;
 
+// Coaching page
+
+export const coachingQuery = `*[_type == "coaching"][0]{
+  coachingPageTopBanner {
+    coachingPageTopBannerTitle,
+    coachingPageTopBannerText,
+    coachingPageTopBannerImage {
+      asset->{_id, url},
+      alt
+    }
+  },
+  coachingPageAlternatingTiles[]{
+    coachingPageAlternatingTileHeading,
+    coachingPageAlternatingTileText,
+    coachingPageAlternatingTileImage {
+      asset->{_id, url},
+      alt
+    }
+  },
+  coachingPageLowerBanner {
+    coachingPageLowerBannerTitle,
+    coachingPageLowerBannerText,
+    coachingPageLowerBannerImage {
+      asset->{_id, url},
+      alt
+    }
+  },
+  coachingPageQuoteText
+}`;
+
 // Global settings
 
 export const globalSettingsQuery = `*[_type == "siteSettings"][0] {
