@@ -70,6 +70,58 @@ export const coachingQuery = `*[_type == "coaching"][0]{
   coachingPageQuoteText
 }`;
 
+export const aboutPageQuery = `*[_type == "aboutPage"][0] {
+  aboutTopSection {
+    aboutTopSectionTitle,
+    aboutTopSectionText,
+    aboutTopSectionLinkText,
+    aboutTopSectionLinkDestination,
+    aboutTopSectionImage {
+      asset->{_id, url},
+      alt
+    }
+  },
+  aboutPageImageAndTextTile {
+    aboutPageImageAndTextTileTitle,
+    aboutPageImageAndTextTileTextContent,
+    aboutPageImageAndTextTileImage {
+      asset->{_id, url},
+      alt
+    }
+  },
+  aboutPageTextBoxesSection {
+    aboutPageTextBoxesHeadeding,
+    aboutPageTextBoxes[] {
+      frontpageAlternatingTilesText
+    }
+  },
+  aboutPageLowerBanner {
+    aboutPageLowerBannerTitle,
+    aboutPageLowerBannerTextContent,
+    aboutPageBottomBannerImage {
+      asset->{_id, url},
+      alt
+    }
+  },
+  aboutPageResumeSection {
+    aboutPageResumeSectionHeading,
+    aboutPageResumeSectionList[] {
+      aboutPageResumeSectionListItemFromYear,
+      aboutPageResumeSectionListItemToYear,
+      aboutPageResumeSectionListItemCompany,
+      aboutPageResumeSectionListItemPosition,
+      aboutPageResumeSectionListItemDescription
+    }
+  },
+  reviewsSection-> {
+    _id,
+    ReviewSection[] {
+      reviewSectionText,
+      reviewSectionName
+    }
+  }
+}`;
+
 // Global settings
 
 export const globalSettingsQuery = `*[_type == "siteSettings"][0] {
