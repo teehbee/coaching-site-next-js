@@ -17,7 +17,7 @@ const BannerWithTiles: React.FC = () => {
   return (
     <section>
       <div className="container-fluid pos-relative px-0">
-        <Image width={1920} height={600} className="img-cover img-350h-600" src="/assets/img/hytte-panorama.jpg" alt="Panorama av Vasstjena" />
+        <Image width={1920} height={600} className="img-cover img-350h-600" src={settings.frontpageLowerBanner.frontpageBottomBannerImage.asset.url} alt={settings.frontpageLowerBanner.frontpageBottomBannerImage.alt || "Bildebeskrivelse mangler"} />
         <div className="overlay align-items-end align-items-lg-center d-flex">
           <div className="container pt-15 my-md-0 ">
             <div className="row px-15 mb-30 mb-lg-0">
