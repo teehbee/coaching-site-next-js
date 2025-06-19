@@ -27,7 +27,7 @@ export const metadata: Metadata = {
 const Contact: React.FC = () => {
   return (
     <>
-      <TopSectionWithButton />;{/* <TextBoxes data={contactTextBoxesData} /> */}
+      <TopSectionWithButton />
       <ContactForm />
     </>
   );

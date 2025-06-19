@@ -122,6 +122,25 @@ export const aboutPageQuery = `*[_type == "aboutPage"][0] {
   }
 }`;
 
+// Contact page
+
+export const contactPageQuery = `*[_type == "contactPage"][0] {
+  contactPageTopSection {
+    contactPageTopSectionTitle,
+    contactPageTopSectionText,
+    contactPageTopSectionLinkText,
+    contactPageTopSectionLinkDestination,
+    contactPageTopSectionImage {
+      asset->{_id, url},
+      alt
+    }
+  },
+  contactPageTextBoxes[] {
+    contactPageTextBoxHeading,
+    contactPageTextBoxTextContent
+  }
+}`;
+
 // Global settings
 
 export const globalSettingsQuery = `*[_type == "siteSettings"][0] {
