@@ -1,9 +1,9 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { client } from "@/lib/sanityClient";
+import { client } from "@/lib/sanityClientClient";
 
-function useSanityData<T>(query: string, params?: Record<string, any>) {
+function useSanityData<T>(query: string, params?: Record<string, unknown>) {
   const [data, setData] = useState<T | null>(null);
 
   useEffect(() => {
