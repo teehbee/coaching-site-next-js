@@ -1,10 +1,5 @@
-import { aboutTextBoxesData } from "../../data/text";
 import { Metadata } from "next";
-import TopSection from "./TopSection";
-import ImageAndTiles from "./ImageAndTiles";
-import Resume from "./Resume";
-import TextBoxes from "../../components/reusable/TextBoxes";
-import { LoopedReviews, BannerLeftContent } from "../../components/reusable";
+import AboutContent from "./AboutContent"; // Client-komponent
 
 export const metadata: Metadata = {
   title: "Kontakt | Mitt Firma",
@@ -27,17 +22,8 @@ export const metadata: Metadata = {
   },
 };
 
-function About() {
-  return (
-    <>
-      <TopSection />
-      <ImageAndTiles />
-      <TextBoxes data={aboutTextBoxesData} />
-      <BannerLeftContent image="/assets/img/hytte-panorama.jpg" title="Katalyserance coaching" text="Det är inte rådgivning –det är en process som väcker mod, klarhet och riktning." />
-      <Resume />
-      <LoopedReviews />
-    </>
-  );
-}
+const AboutPage = async () => {
+  return <AboutContent />;
+};
 
-export default About;
+export default AboutPage;

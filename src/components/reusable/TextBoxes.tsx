@@ -1,7 +1,8 @@
-import type { ContactTextBoxesSection } from "../../data/text/contactTextBoxes";
+import { SanityTextBoxesSection } from "@/data/interface/textBoxesInterface";
+import { PortableText } from "@portabletext/react";
 
 interface TextBoxesProps {
-  data: ContactTextBoxesSection;
+  data: SanityTextBoxesSection;
 }
 
 const TextBoxes: React.FC<TextBoxesProps> = ({ data }) => {
@@ -19,7 +20,9 @@ const TextBoxes: React.FC<TextBoxesProps> = ({ data }) => {
             <div key={index} className="col-12 col-md-6 col-lg-3 mb-30 d-flex mh-150px">
               <div className="border-full border-radius-5 text-center p-15">
                 <div className="pb-15">{item.icon ? <item.icon /> : item.label ? <span>{item.label}</span> : null}</div>
-                <div className="pb-15">{item.textContent}</div>
+                <div className="pb-15">
+                  <PortableText value={item.textContent} />
+                </div>
               </div>
             </div>
           ))}

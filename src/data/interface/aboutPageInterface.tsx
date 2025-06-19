@@ -26,9 +26,9 @@ export interface AboutPageInterface {
     };
   };
   aboutPageTextBoxesSection: {
-    aboutPageTextBoxesHeadeding: string;
+    aboutPageTextBoxesHeading: string;
     aboutPageTextBoxes: {
-      frontpageAlternatingTilesText: PortableTextBlock;
+      aboutPageTextContent: PortableTextBlock;
     }[];
   };
   aboutPageLowerBanner: {

@@ -90,9 +90,9 @@ export const aboutPageQuery = `*[_type == "aboutPage"][0] {
     }
   },
   aboutPageTextBoxesSection {
-    aboutPageTextBoxesHeadeding,
+    aboutPageTextBoxesHeading,
     aboutPageTextBoxes[] {
-      frontpageAlternatingTilesText
+      aboutPageTextContent
     }
   },
   aboutPageLowerBanner {

@@ -1,23 +1,34 @@
+"use client";
+
 import Image from "next/image";
+import { PortableText } from "@portabletext/react";
+import { useSanityData } from "@/utils";
+import { AboutPageInterface } from "@/data/interface/aboutPageInterface";
+import { aboutPageQuery } from "@/lib/queries";
 
 const TopSection: React.FC = () => {
+  const settings = useSanityData<AboutPageInterface>(aboutPageQuery);
+
+  if (!settings) {
+    return null;
+  }
   return (
     <section className="pos-relative pb-45 pb-lg-90 main-bg-color">
       <div className="container">
         <div className="row align-items-center flex-sm-row-reverse justify-content-center text-center text-md-start">
           <div className="col-12 col-md-5 z-index-md-100 mb-30 mb-lg-0">
-            <Image priority width={520} height={740} className="img-cover mw-md-400px border-radius-5" src="/assets/img/kontor-portrett.jpg" alt="Bengt Johansson" />
+            <Image priority width={520} height={740} className="img-cover mw-md-400px border-radius-5" src={settings.aboutTopSection.aboutTopSectionImage.asset.url} alt={settings.aboutTopSection.aboutTopSectionImage.alt} />
           </div>
           <div className="col-12 col-md-7 z-index-md-100 pr-md-30 pr-lg-60 mt-xl--75">
             <div className="mb-30">
-              <h1 className="fs-2-rem-lg-4rem mb-30 pos-relative custom-border-bottom custom-border-bottom-25-percent-tc-lg-te">Hvem er Bengt?</h1>
-              <div className="fw-500 pb-15">Bengt Johansson har en gedigen bakgrund som ledare, tidigare befäl till sjöss och idag verksam som chef inom teknisk förvaltning.</div>
-              <div className="pb-15">Med ett naturligt lugn, tydlighet och en närvaro som inger förtroende, har Bengt under många år stöttat medarbetare, kollegor och ledare genom förändringar, vardagsutmaningar och utveckling.</div>
-              <div>Med erfarenhet från både tuffa miljöer till havs och komplexa organisationer på land, vet han vad som krävs för att leda –både sig själv och andra.</div>
+              <h1 className="fs-2-rem-lg-4rem mb-30 pos-relative custom-border-bottom custom-border-bottom-25-percent-tc-lg-te">{settings.aboutTopSection.aboutTopSectionTitle}</h1>
+              <div className="pb-15">
+                <PortableText value={settings.aboutTopSection.aboutTopSectionText} />
+              </div>
             </div>
             <div className="">
-              <a className="btn btn-primary" href="#resume">
-                Mine erfaringer
+              <a className="btn btn-primary" href={settings.aboutTopSection.aboutTopSectionLinkDestination}>
+                {settings.aboutTopSection.aboutTopSectionLinkText}
               </a>
             </div>
           </div>
