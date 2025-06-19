@@ -1,6 +1,7 @@
 import TopSectionWithButton from "./TopSectionWithButton";
 import ContactForm from "./Form";
 import { Metadata } from "next";
+import TextBoxes from "./TextBoxes";
 
 export const metadata: Metadata = {
   title: "Kontakt",
@@ -28,6 +29,7 @@ const Contact: React.FC = () => {
   return (
     <>
       <TopSectionWithButton />
+      <TextBoxes />
       <ContactForm />
     </>
   );
