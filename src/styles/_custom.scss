@@ -1,8 +1,13 @@
 // Review animation
 
+.review-container {
+  min-height: 230px;
+}
+
 .review-content {
   opacity: 1;
   transition: opacity 0.2s ease-in-out;
+
   &.fade-out {
     opacity: 0;
   }

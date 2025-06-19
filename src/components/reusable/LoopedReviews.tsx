@@ -44,7 +44,7 @@ const LoopedReviews: React.FC = () => {
     <section className="main-bg-color">
       <div className="container pb-45 pg-lg-90">
         <div className="row mx-15">
-          <div className="review-content col-12 col-lg-6 offset-lg-3 border-full border-radius-5 text-center p-30 px-lg-60" onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}>
+          <div className="review-container col-12 col-lg-6 offset-lg-3 border-full border-radius-5 text-center p-30 px-lg-60 d-flex flex-column align-items-center justify-content-between" onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}>
             <QuoteIcon className={"accent-fill"} />
             <div className={`review-content py-15 fs-1-rem-lg-1-25rem ${isAnimating ? "fade-out" : ""}`}>
               <PortableText value={reviewData[current].reviewSectionText} />

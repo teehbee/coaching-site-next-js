@@ -61,18 +61,18 @@ const ContactForm: React.FC = () => {
                   <div className="input-wrapper">
                     <input type="text" id="name" {...register("name")} onChange={() => clearErrors("name")} />
                     <div className="input-bookmark"></div>
-                    {errors.name && <p>{errors.name.message}</p>}
+                    {errors.name && <p className="fs-0-75-rem-lg-0-875rem">{errors.name.message}</p>}
                   </div>
                 </div>
                 <div className="col-12 col-lg-6 pg-5">
-                  <label className="mt-3" htmlFor="email">
+                  <label className="mt-3 " htmlFor="email">
                     E-postadresse
                   </label>
                   <div className="input-wrapper">
                     <input type="email" id="email" {...register("email")} onChange={() => clearErrors("email")} />
                     <div className="input-bookmark"></div>
                   </div>
-                  {errors.email && <p>{errors.email.message}</p>}
+                  {errors.email && <p className="fs-0-75-rem-lg-0-875rem">{errors.email.message}</p>}
                 </div>
                 <div className="col-12 pb-5">
                   <label className="mt-3" htmlFor="message">
@@ -82,7 +82,7 @@ const ContactForm: React.FC = () => {
                     <textarea id="message" {...register("message")} onChange={() => clearErrors("message")} />
                     <div className="input-bookmark"></div>
                   </div>
-                  {errors.message && <p>{errors.message.message}</p>}
+                  {errors.message && <p className="fs-0-75-rem-lg-0-875rem">{errors.message.message}</p>}
                 </div>
               </div>
               <div>Genom att skicka in godkänner du vår behandling av personuppgifter</div>
