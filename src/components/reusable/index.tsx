@@ -1,6 +1,6 @@
 import LoopedReviews from "./LoopedReviews";
-import BannerLeftContent from "./BannerLeftContent";
+// import BannerLeftContent from "./BannerLeftContent";
 import NavLink from "./NavLink";
-import TextBoxes from "./TextBoxes";
+// import TextBoxes from "./TextBoxes";
 
-export { LoopedReviews, BannerLeftContent, NavLink, TextBoxes };
+export { LoopedReviews, NavLink };
