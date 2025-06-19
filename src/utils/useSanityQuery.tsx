@@ -1,13 +1,6 @@
 import { useState, useEffect } from "react";
 import { client } from "@/lib/sanityClientClient";
 
-import { AboutPageInterface } from "@/data/interface/aboutPageInterface";
-import { aboutPageQuery } from "@/lib/queries";
-
-export async function getAboutPageData(): Promise<AboutPageInterface> {
-  return await client.fetch<AboutPageInterface>(aboutPageQuery);
-}
-
 function useSanityData<T>(query: string, params?: Record<string, unknown>) {
   const [data, setData] = useState<T | null>(null);
 

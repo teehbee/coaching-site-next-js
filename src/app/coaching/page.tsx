@@ -1,6 +1,6 @@
 import AlternateImageTextTiles from "./AlternateTiles";
 import TopBanner from "./TopBanner";
-import { BannerLeftContent } from "../../components/reusable";
+import BannerLeftContent from "./BannerLeftContent";
 import QuoteSection from "./QuoteSection";
 import { Metadata } from "next";
 
@@ -30,7 +30,7 @@ function Coaching() {
     <>
       <TopBanner />
       <AlternateImageTextTiles />
-      <BannerLeftContent image="/assets/img/hytte-panorama.jpg" title="Katalyserande coaching" text="Det är inte rådgivning –det är en process som väcker mod, klarhet och riktning. Det är inte rådgivning –det är en process som väcker mod, klarhet och riktning." />
+      <BannerLeftContent />
       <QuoteSection />
     </>
   );
