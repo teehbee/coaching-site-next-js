@@ -1,26 +1,32 @@
 import { HomePageContent } from "./HomePageContent";
-import { Metadata } from "next";
+import { getFrontpagePageMetadata } from "@/lib/metadata/frontpageMetadata";
 
-export const metadata: Metadata = {
-  title: "Kontakt | Mitt Firma",
-  description: "Ta kontakt for å lære mer om våre tjenester.",
-  keywords: ["coaching", "mental trening", "kontakt"],
-  openGraph: {
-    title: "Kontakt oss – Mitt Firma",
-    description: "Slik kommer du i kontakt med oss.",
-    url: "https://mittdomene.no/kontakt",
-    siteName: "Mitt Firma",
-    images: [
-      {
-        url: "https://mittdomene.no/images/og-image.jpg",
-        width: 1200,
-        height: 630,
-      },
-    ],
-    locale: "no_NO",
-    type: "website",
-  },
-};
+export async function generateMetadata() {
+  const data = await getFrontpagePageMetadata();
+
+  if (!data?.metadata) return {};
+
+  return {
+    title: data.metadata.title,
+    description: data.metadata.description,
+    openGraph: {
+      title: data.metadata.title,
+      description: data.metadata.description,
+      images: [
+        {
+          url: data.metadata.ogImage,
+          width: 1200,
+          height: 630,
+        },
+      ],
+      siteName: "Bengt Johansson",
+      locale: "no_NO",
+      type: "website",
+      // Change to correct domain
+      url: "https://dittdomene.no/kontakt",
+    },
+  };
+}
 
 const Home = async () => {
   return <HomePageContent />;

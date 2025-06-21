@@ -1,6 +1,6 @@
 import { client } from "../sanityClient";
 
-const query = `*[_type == "frontpage"][0] {
+const query = `*[_type == "homePage"][0] {
   metadata {
     title,
     description,
