@@ -8,15 +8,22 @@ export function GoogleAnalytics() {
   const pathname = usePathname();
   const previousPath = useRef<string>("");
 
-  useEffect(() => {
-    const handle = requestAnimationFrame(() => {
-      if (pathname !== previousPath.current) {
-        previousPath.current = pathname;
-        ga.pageview(pathname);
-      }
-    });
+  // useEffect(() => {
+  //   const handle = requestAnimationFrame(() => {
+  //     if (pathname !== previousPath.current) {
+  //       previousPath.current = pathname;
+  //       ga.pageview(pathname);
+  //     }
+  //   });
 
-    return () => cancelAnimationFrame(handle);
+  //   return () => cancelAnimationFrame(handle);
+  // }, [pathname]);
+
+  useEffect(() => {
+    if (pathname !== previousPath.current) {
+      previousPath.current = pathname;
+      ga.pageview(pathname);
+    }
   }, [pathname]);
 
   return null;
