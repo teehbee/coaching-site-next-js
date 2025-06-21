@@ -1,12 +1,9 @@
 import { client } from "../sanityClient";
 import { urlFor } from "../sanityImage";
+import { metadataFields } from "./metaDataFields";
 
 const query = `*[_type == "coaching"][0] {
-  metadata {
-    title,
-    description,
-    ogImage
-  }
+  ${metadataFields}
 }`;
 
 export async function getCoachingPageMetadata() {

@@ -1,13 +1,10 @@
 // lib/metadata/aboutMetadata.ts
 import { client } from "../sanityClient";
 import { urlFor } from "../sanityImage";
+import { metadataFields } from "./metaDataFields";
 
 const query = `*[_type == "aboutPage"][0] {
-  metadata {
-    title,
-    description,
-    ogImage
-  }
+  ${metadataFields}
 }`;
 
 export async function getAboutPageMetadata() {
