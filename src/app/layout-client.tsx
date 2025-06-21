@@ -1,11 +1,11 @@
 "use client";
 
-import { ClientGoogleAnalytics } from "@/components/analytics/ClientGoogleAnalytics";
+import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
 
 export default function LayoutClientWrapper({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <ClientGoogleAnalytics />
+      <GoogleAnalytics />
       {children}
     </>
   );
