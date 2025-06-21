@@ -41,6 +41,7 @@ export function GoogleAnalytics() {
   console.log("usePathname:", pathname);
 
   useEffect(() => {
+    console.log("usePathname in useEffect:", pathname);
     const url = window.location.pathname + window.location.search;
     console.log("GA sending pageview for url:", url);
     ga.pageview(url);
