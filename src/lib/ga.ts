@@ -4,10 +4,8 @@ export const GA_TRACKING_ID = process.env.NEXT_PUBLIC_GA_ID || "";
 export const pageview = (url: string) => {
   if (!GA_TRACKING_ID) return;
   if (typeof window.gtag !== "function") {
-    console.log("window.gtag is not a function yet");
     return;
   }
-  console.log("Tracking pageview for:", url);
   window.gtag("config", GA_TRACKING_ID, {
     page_path: url,
   });

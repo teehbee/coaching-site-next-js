@@ -39,8 +39,8 @@ export function GoogleAnalytics() {
   const pathname = usePathname();
 
   useEffect(() => {
-    // På klienten har vi tilgang til window.location, så hent full URL-path + query derfra
     const url = window.location.pathname + window.location.search;
+    console.log("GA sending pageview for url:", url);
     ga.pageview(url);
   }, [pathname]);
 
