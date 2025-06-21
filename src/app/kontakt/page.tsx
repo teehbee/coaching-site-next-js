@@ -3,7 +3,7 @@ import { ContactContent } from "./ContactContent";
 
 export const metadata: Metadata = {
   title: "Kontakt | Mitt Firma",
-  description: "Ta kontakt for å lære mer om våre tjenester.",
+  description: "Ta kontakt for å lære mer om mine tjenester.",
   keywords: ["coaching", "mental trening", "kontakt"],
   openGraph: {
     title: "Kontakt oss – Mitt Firma",
