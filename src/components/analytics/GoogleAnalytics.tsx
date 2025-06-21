@@ -38,12 +38,12 @@ import * as ga from "@/lib/ga";
 export function GoogleAnalytics() {
   const pathname = usePathname();
 
-  console.log("usePathname:", pathname);
-
   useEffect(() => {
-    console.log("usePathname in useEffect:", pathname);
     const url = window.location.pathname + window.location.search;
-    console.log("GA sending pageview for url:", url);
+    console.log("🔍 GA DEBUG – Pathname:", pathname);
+    console.log("🔍 GA DEBUG – Full URL:", url);
+    console.log("🔍 GA DEBUG – gtag available:", typeof window.gtag);
+
     ga.pageview(url);
   }, [pathname]);
 
