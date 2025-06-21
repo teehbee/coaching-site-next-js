@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { Playfair_Display, Open_Sans } from "next/font/google";
 import "../styles/styles.scss";
 import { Header, Footer } from "@/components/navigation";
-import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
 import Script from "next/script";
+import { ClientGoogleAnalytics } from "@/components/analytics/ClientGoogleAnalytics";
 
 const playfairDisplay = Playfair_Display({
   variable: "--font-playfair-display",
@@ -63,7 +63,7 @@ export default function RootLayout({
             `,
           }}
         />
-        <GoogleAnalytics />
+        <ClientGoogleAnalytics />
         <Header />
         {children}
         <Footer />
