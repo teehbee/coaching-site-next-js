@@ -32,17 +32,17 @@
 "use client";
 
 import { useEffect } from "react";
-import { usePathname, useSearchParams } from "next/navigation";
+import { usePathname } from "next/navigation";
 import * as ga from "@/lib/ga";
 
 export function GoogleAnalytics() {
   const pathname = usePathname();
-  const searchParams = useSearchParams();
 
   useEffect(() => {
-    const url = pathname + (searchParams?.toString() ? `?${searchParams.toString()}` : "");
+    // På klienten har vi tilgang til window.location, så hent full URL-path + query derfra
+    const url = window.location.pathname + window.location.search;
     ga.pageview(url);
-  }, [pathname, searchParams]);
+  }, [pathname]);
 
   return null;
 }
