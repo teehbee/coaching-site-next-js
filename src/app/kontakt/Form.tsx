@@ -49,13 +49,13 @@ const ContactForm: React.FC = () => {
   return (
     <section id="contact-form" className="dark-bg-color pb-45 pb-lg-90">
       <div className="container">
-        <div className="row align-items-stretch ">
+        <div className="row align-items-stretch px-15 px-lg-0">
           <div className="col-12 col-lg-6 offset-lg-1 alt-bg-color border-radius-5 border-radius-lg-5-left p-30">
-            <h2 className="pos-relative custom-border-bottom custom-border-bottom-25-percent-ts">Kontakt meg i dag</h2>
+            <h2 className="pos-relative custom-border-bottom custom-border-bottom-25-percent-ts mb-15">Kontakt meg i dag</h2>
             <form onSubmit={handleSubmit(onSubmit)}>
               <div className="row">
-                <div className="col-12 col-lg-6 pb-5">
-                  <label className="mt-3" htmlFor="name">
+                <div className="col-12 col-lg-6 pb-15">
+                  <label className="pb-5" htmlFor="name">
                     Name
                   </label>
                   <div className="input-wrapper">
@@ -64,8 +64,8 @@ const ContactForm: React.FC = () => {
                     {errors.name && <p className="fs-0-75-rem-lg-0-875rem">{errors.name.message}</p>}
                   </div>
                 </div>
-                <div className="col-12 col-lg-6 pg-5">
-                  <label className="mt-3 " htmlFor="email">
+                <div className="col-12 col-lg-6 pb-15">
+                  <label className="pb-5" htmlFor="email">
                     E-postadresse
                   </label>
                   <div className="input-wrapper">
@@ -74,8 +74,8 @@ const ContactForm: React.FC = () => {
                   </div>
                   {errors.email && <p className="fs-0-75-rem-lg-0-875rem">{errors.email.message}</p>}
                 </div>
-                <div className="col-12 pb-5">
-                  <label className="mt-3" htmlFor="message">
+                <div className="col-12 pb-15">
+                  <label className="pb-5" htmlFor="message">
                     Melding
                   </label>
                   <div className="input-wrapper">
