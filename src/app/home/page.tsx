@@ -1,29 +1,29 @@
 import { HomePageContent } from "./HomePageContent";
-import { getFrontpagePageMetadata } from "@/lib/metadata/frontpageMetadata";
+import { getFrontpageMetadata } from "@/lib/metadata/frontpageMetadata";
+import type { Metadata } from "next";
 
-export async function generateMetadata() {
-  const data = await getFrontpagePageMetadata();
-
-  if (!data?.metadata) return {};
+export async function generateMetadata(): Promise<Metadata> {
+  const data = await getFrontpageMetadata();
 
   return {
-    title: data.metadata.title,
-    description: data.metadata.description,
+    title: data.title,
+    description: data.description,
     openGraph: {
-      title: data.metadata.title,
-      description: data.metadata.description,
-      images: [
-        {
-          url: data.metadata.ogImage,
-          width: 1200,
-          height: 630,
-        },
-      ],
+      title: data.title,
+      description: data.description,
+      images: data.ogImage
+        ? [
+            {
+              url: data.ogImage,
+              width: 1200,
+              height: 630,
+            },
+          ]
+        : [],
       siteName: "Bengt Johansson",
       locale: "no_NO",
       type: "website",
-      // Change to correct domain
-      url: "https://dittdomene.no/kontakt",
+      url: "https://dittdomene.no/om", // Husk å tilpasse denne for hver side
     },
   };
 }

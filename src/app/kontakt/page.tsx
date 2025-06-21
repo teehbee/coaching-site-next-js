@@ -1,26 +1,32 @@
-import { Metadata } from "next";
 import { ContactContent } from "./ContactContent";
+import type { Metadata } from "next";
+import { getContactMetadata } from "@/lib/metadata/contactMetadata";
 
-export const metadata: Metadata = {
-  title: "Kontakt | Mitt Firma",
-  description: "Ta kontakt for å lære mer om mine tjenester.",
-  keywords: ["coaching", "mental trening", "kontakt"],
-  openGraph: {
-    title: "Kontakt oss – Mitt Firma",
-    description: "Slik kommer du i kontakt med oss.",
-    url: "https://mittdomene.no/kontakt",
-    siteName: "Mitt Firma",
-    images: [
-      {
-        url: "https://mittdomene.no/images/og-image.jpg",
-        width: 1200,
-        height: 630,
-      },
-    ],
-    locale: "no_NO",
-    type: "website",
-  },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const data = await getContactMetadata();
+
+  return {
+    title: data.title,
+    description: data.description,
+    openGraph: {
+      title: data.title,
+      description: data.description,
+      images: data.ogImage
+        ? [
+            {
+              url: data.ogImage,
+              width: 1200,
+              height: 630,
+            },
+          ]
+        : [],
+      siteName: "Bengt Johansson",
+      locale: "no_NO",
+      type: "website",
+      url: "https://dittdomene.no/om", // Husk å tilpasse denne for hver side
+    },
+  };
+}
 
 const ContactPage = async () => {
   return <ContactContent />;
