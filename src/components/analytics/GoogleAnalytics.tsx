@@ -38,6 +38,8 @@ import * as ga from "@/lib/ga";
 export function GoogleAnalytics() {
   const pathname = usePathname();
 
+  console.log("usePathname:", pathname);
+
   useEffect(() => {
     const url = window.location.pathname + window.location.search;
     console.log("GA sending pageview for url:", url);
