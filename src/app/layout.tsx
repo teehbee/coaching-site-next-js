@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import "../styles/styles.scss";
 import { Header, Footer } from "@/components/navigation";
-import Script from "next/script";
-// import LayoutClientWrapper from "./layout-client";
 import { getFontClasses } from "@/lib/fonts";
+
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 export const metadata: Metadata = {
   title: {
@@ -33,13 +33,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={getFontClasses()}>
-        {/* <Script src="https://web.cmp.usercentrics.eu/modules/autoblocker.js" strategy="beforeInteractive" />
-        <Script id="usercentrics-cmp" src="https://web.cmp.usercentrics.eu/ui/loader.js" data-settings-id="CWoF1AuWdmx_BX" strategy="beforeInteractive" /> */}
-        {/* <LayoutClientWrapper> */}
+        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID!} />
         <Header />
         {children}
         <Footer />
-        {/* </LayoutClientWrapper> */}
       </body>
     </html>
   );
