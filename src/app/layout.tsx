@@ -33,9 +33,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={getFontClasses()}>
-        {/* Cookiebot */}
-        <Script src="https://web.cmp.usercentrics.eu/modules/autoblocker.js" />
-        <Script id="usercentrics-cmp" src="https://web.cmp.usercentrics.eu/ui/loader.js" data-settings-id="CWoF1AuWdmx_BX" async />
+        {/* Usercentrics (Cookie Consent) */}
+        <Script src="https://web.cmp.usercentrics.eu/modules/autoblocker.js" strategy="beforeInteractive" />
+        <Script id="usercentrics-cmp" src="https://web.cmp.usercentrics.eu/ui/loader.js" data-settings-id="CWoF1AuWdmx_BX" strategy="beforeInteractive" />
+
         {/* Google Analytics */}
         <Script src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`} strategy="afterInteractive" />
         <Script
@@ -43,14 +44,14 @@ export default function RootLayout({
           strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}', {
-                anonymize_ip: true,
-                send_page_view: false
-              });
-            `,
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}', {
+        anonymize_ip: true,
+        send_page_view: false
+      });
+    `,
           }}
         />
         <LayoutClientWrapper>
