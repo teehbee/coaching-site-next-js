@@ -1,9 +1,39 @@
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
+const RATE_LIMIT_WINDOW = 60 * 1000;
+const MAX_REQUESTS_PER_WINDOW = 5;
+
+// simple i-memory cache for IP tracking
+const ipRequestCounts: Record<string, { count: number; firstRequestTime: number }> = {};
+
 // API call from email form
 export async function POST(req: Request) {
   try {
+    // Get IP from request headers
+
+    const ip = req.headers.get("x-forwarded-for") || req.headers.get("remote-address") || "unknown";
+
+    const now = Date.now();
+
+    if (!ipRequestCounts[ip]) {
+      ipRequestCounts[ip] = { count: 1, firstRequestTime: now };
+    } else {
+      const timeSinceFirstRequest = now - ipRequestCounts[ip].firstRequestTime;
+
+      if (timeSinceFirstRequest < RATE_LIMIT_WINDOW) {
+        // Within window, increase count
+        ipRequestCounts[ip].count += 1;
+
+        if (ipRequestCounts[ip].count > MAX_REQUESTS_PER_WINDOW) {
+          return NextResponse.json({ error: `Rate limit exceeded. Maks ${MAX_REQUESTS_PER_WINDOW} forespørsler per minutt.` }, { status: 429 });
+        }
+      } else {
+        // Window expired, reset counter and time
+        ipRequestCounts[ip] = { count: 1, firstRequestTime: now };
+      }
+    }
+
     // JSON from client
     const { name, email, message } = await req.json();
 
