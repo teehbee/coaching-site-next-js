@@ -16,15 +16,15 @@ export async function POST(req: Request) {
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
-        user: process.env.GMAIL_USER, // GMAIL adress from .env
-        pass: process.env.GMAIL_APP_PASSWORD, // App password from .env
+        user: process.env.EMAIL_USER, // GMAIL adress from .env
+        pass: process.env.EMAIL_APP_PASSWORD, // App password from .env
       },
     });
 
     // Define used email
     const mailOptions = {
-      from: process.env.GMAIL_USER,
-      to: process.env.GMAIL_USER, // Sent to yourself
+      from: process.env.EMAIL_USER,
+      to: process.env.EMAIL_USER, // Sent to yourself
       subject: `Ny henvendelse fra ${name}`,
       text: `Navn: ${name}\nE-post: ${email}\n\nMelding:\n${message}`,
       replyTo: email,
