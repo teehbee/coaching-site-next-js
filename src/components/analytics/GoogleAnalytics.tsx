@@ -7,7 +7,6 @@ import { usePathname } from "next/navigation";
 
 declare global {
   interface Window {
-    dataLayer: unknown[];
     Usercentrics?: {
       getConsents: () => { marketing: boolean };
       onConsentChanged: (callback: () => void) => void;
@@ -19,13 +18,11 @@ declare global {
 export function GoogleAnalytics() {
   const pathname = usePathname();
   const [consentGiven, setConsentGiven] = useState(false);
-  const [scriptLoaded, setScriptLoaded] = useState(false);
 
   useEffect(() => {
     function checkConsent() {
       if (window.Usercentrics) {
         const consents = window.Usercentrics.getConsents();
-        console.log("Usercentrics consents:", consents);
         setConsentGiven(!!consents.marketing);
       }
     }
@@ -39,40 +36,8 @@ export function GoogleAnalytics() {
     }
   }, []);
 
-  // Dynamisk last GA script når samtykke gis
   useEffect(() => {
-    if (!consentGiven || scriptLoaded) return;
-
-    const script = document.createElement("script");
-    script.src = `https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`;
-    script.async = true;
-    script.onload = () => {
-      window.dataLayer = window.dataLayer || [];
-      function gtag(...args: unknown[]) {
-        window.dataLayer.push(args);
-      }
-      window.gtag = gtag;
-      window.gtag("js", new Date());
-      window.gtag("config", process.env.NEXT_PUBLIC_GA_ID, {
-        anonymize_ip: true,
-        send_page_view: false,
-      });
-
-      setScriptLoaded(true);
-    };
-
-    document.head.appendChild(script);
-
-    return () => {
-      // Optionelt fjern script hvis du ønsker cleanup
-      document.head.removeChild(script);
-    };
-  }, [consentGiven, scriptLoaded]);
-
-  // Send page_view event når samtykke og script er klart
-  useEffect(() => {
-    console.log("Consent changed:", consentGiven);
-    if (!consentGiven || !scriptLoaded) return;
+    if (!consentGiven) return;
 
     if (window.gtag) {
       const url = window.location.pathname + window.location.search;
@@ -80,7 +45,7 @@ export function GoogleAnalytics() {
         page_path: url,
       });
     }
-  }, [pathname, consentGiven, scriptLoaded]);
+  }, [pathname, consentGiven]);
 
   return null;
 }
