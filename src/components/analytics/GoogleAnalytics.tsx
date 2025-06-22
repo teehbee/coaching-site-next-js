@@ -25,6 +25,7 @@ export function GoogleAnalytics() {
     function checkConsent() {
       if (window.Usercentrics) {
         const consents = window.Usercentrics.getConsents();
+        console.log("Usercentrics consents:", consents);
         setConsentGiven(!!consents.marketing);
       }
     }
@@ -70,6 +71,7 @@ export function GoogleAnalytics() {
 
   // Send page_view event når samtykke og script er klart
   useEffect(() => {
+    console.log("Consent changed:", consentGiven);
     if (!consentGiven || !scriptLoaded) return;
 
     if (window.gtag) {
