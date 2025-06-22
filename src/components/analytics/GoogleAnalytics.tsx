@@ -17,6 +17,7 @@ declare global {
 }
 
 export function GoogleAnalytics() {
+  console.debug("[GA] GoogleAnalytics component mounted");
   const pathname = usePathname();
   const [consentGiven, setConsentGiven] = useState(false);
   const [scriptLoaded, setScriptLoaded] = useState(false);
