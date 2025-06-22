@@ -16,5 +16,6 @@ export async function getContactMetadata() {
     title: metadata?.title ?? "Om Bengt Johansson",
     description: metadata?.description ?? "Les mer om Bengt og hans erfaring med coaching.",
     ogImage: metadata?.ogImage ? urlFor(metadata.ogImage).width(1200).height(630).format("jpg").url() : undefined,
+    keywords: metadata?.keywords ?? [],
   };
 }

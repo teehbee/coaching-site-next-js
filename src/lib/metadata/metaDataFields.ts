@@ -2,6 +2,7 @@ export const metadataFields = `
   metadata {
     title,
     description,
-    ogImage
+    ogImage,
+    keywords
   }
 `;
