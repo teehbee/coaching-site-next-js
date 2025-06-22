@@ -1,50 +1,17 @@
 "use client";
 
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { useState } from "react";
-import * as yup from "yup";
-
-interface contactDataInterface {
-  name: string;
-  email: string;
-  message: string;
-}
+import { useContactForm } from "@/utils";
 
 const ContactForm: React.FC = () => {
-  const [isSending, setIsSending] = useState(false);
-  const [formSent, setFormSent] = useState<null | "success" | "error">(null);
-
-  function onSubmit(data: contactDataInterface) {
-    setIsSending(true);
-    setFormSent(null);
-    clearErrors();
-
-    console.log(data);
-
-    setTimeout(() => {
-      setIsSending(false);
-      reset();
-      setFormSent("success");
-    }, 1500);
-  }
-
-  const contactSchema = yup.object().shape({
-    name: yup.string().required("Feltet er påkrevd"),
-    email: yup.string().email("Vennligst skriv inn en gyldig e-postadresse").required("Feltet er påkrevd"),
-    message: yup.string().required("Feltet er påkrevd"),
-  });
-
   const {
     register,
     handleSubmit,
     formState: { errors },
-    reset,
     clearErrors,
-  } = useForm<contactDataInterface>({
-    resolver: yupResolver(contactSchema),
-    mode: "onSubmit",
-  });
+    isSending,
+    formSent,
+    onSubmit,
+  } = useContactForm();
 
   return (
     <section id="contact-form" className="dark-bg-color pb-45 pb-lg-90">
@@ -91,6 +58,7 @@ const ContactForm: React.FC = () => {
                   {isSending ? "Sender..." : "Send"}
                 </button>
                 {formSent === "success" && <div className="contact-success-message">Meldingen ble sendt. Du hører fra meg snart!</div>}
+                {formSent === "error" && <div className="contact-error-message">Noe gikk galt. Prøv igjen senere.</div>}
               </div>
               <div className="fs-0-75-rem-lg-0-875rem">
                 Felt merket <span className="info-bookmark"></span> er påkrevd
