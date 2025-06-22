@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 
 declare global {
   interface Window {
+    dataLayer: unknown[];
     Usercentrics?: {
       getConsents: () => { marketing: boolean };
       onConsentChanged: (callback: () => void) => void;
@@ -18,26 +19,59 @@ declare global {
 export function GoogleAnalytics() {
   const pathname = usePathname();
   const [consentGiven, setConsentGiven] = useState(false);
+  const [scriptLoaded, setScriptLoaded] = useState(false);
 
+  // 1. Sjekk om bruker har gitt samtykke
   useEffect(() => {
     function checkConsent() {
       if (window.Usercentrics) {
         const consents = window.Usercentrics.getConsents();
-        setConsentGiven(!!consents.marketing);
+        const marketingConsent = consents.marketing;
+        setConsentGiven(marketingConsent);
       }
     }
 
     checkConsent();
 
-    if (window.Usercentrics) {
-      window.Usercentrics.onConsentChanged(() => {
-        checkConsent();
-      });
-    }
+    window.Usercentrics?.onConsentChanged(() => {
+      checkConsent();
+    });
   }, []);
 
+  // 2. Last Google Analytics skript når samtykke gis
   useEffect(() => {
-    if (!consentGiven) return;
+    if (!consentGiven || scriptLoaded) return;
+
+    const script = document.createElement("script");
+    script.src = `https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`;
+    script.async = true;
+    script.onload = () => {
+      window.dataLayer = window.dataLayer || [];
+
+      function gtag(...args: unknown[]) {
+        window.dataLayer.push(args);
+      }
+
+      window.gtag = gtag;
+      window.gtag("js", new Date());
+      window.gtag("config", process.env.NEXT_PUBLIC_GA_ID, {
+        anonymize_ip: true,
+        send_page_view: false,
+      });
+
+      setScriptLoaded(true);
+    };
+
+    document.head.appendChild(script);
+
+    return () => {
+      document.head.removeChild(script);
+    };
+  }, [consentGiven, scriptLoaded]);
+
+  // 3. Send page_view ved rutenavigasjon
+  useEffect(() => {
+    if (!consentGiven || !scriptLoaded) return;
 
     if (window.gtag) {
       const url = window.location.pathname + window.location.search;
@@ -45,7 +79,7 @@ export function GoogleAnalytics() {
         page_path: url,
       });
     }
-  }, [pathname, consentGiven]);
+  }, [pathname, consentGiven, scriptLoaded]);
 
   return null;
 }

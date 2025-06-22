@@ -37,7 +37,7 @@ export default function RootLayout({
         <Script id="usercentrics-cmp" src="https://web.cmp.usercentrics.eu/ui/loader.js" data-settings-id="CWoF1AuWdmx_BX" strategy="beforeInteractive" />
 
         {/* Google Analytics */}
-        <Script src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`} strategy="afterInteractive" />
+        {/* <Script src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`} strategy="afterInteractive" />
         <Script
           id="gtag-init"
           strategy="afterInteractive"
@@ -52,7 +52,7 @@ export default function RootLayout({
       });
     `,
           }}
-        />
+        /> */}
         <LayoutClientWrapper>
           <Header />
           {children}
