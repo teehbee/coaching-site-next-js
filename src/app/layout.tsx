@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "../styles/styles.scss";
 import { Header, Footer } from "@/components/navigation";
 import Script from "next/script";
-import LayoutClientWrapper from "./layout-client";
+// import LayoutClientWrapper from "./layout-client";
 import { getFontClasses } from "@/lib/fonts";
 
 export const metadata: Metadata = {
@@ -33,13 +33,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={getFontClasses()}>
-        <Script src="https://web.cmp.usercentrics.eu/modules/autoblocker.js" strategy="beforeInteractive" />
-        <Script id="usercentrics-cmp" src="https://web.cmp.usercentrics.eu/ui/loader.js" data-settings-id="CWoF1AuWdmx_BX" strategy="beforeInteractive" />
-        <LayoutClientWrapper>
-          <Header />
-          {children}
-          <Footer />
-        </LayoutClientWrapper>
+        {/* <Script src="https://web.cmp.usercentrics.eu/modules/autoblocker.js" strategy="beforeInteractive" />
+        <Script id="usercentrics-cmp" src="https://web.cmp.usercentrics.eu/ui/loader.js" data-settings-id="CWoF1AuWdmx_BX" strategy="beforeInteractive" /> */}
+        {/* <LayoutClientWrapper> */}
+        <Header />
+        {children}
+        <Footer />
+        {/* </LayoutClientWrapper> */}
       </body>
     </html>
   );
