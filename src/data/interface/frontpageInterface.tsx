@@ -14,6 +14,7 @@ interface FrontpageTopBanner {
   frontpageTopBannerLinkText: string;
   frontpageTopBannerLinkDestination: string;
   frontpageTopBannerImage: ImageType;
+  frontpageTopBannerImageSmall: ImageType;
 }
 
 interface FrontpageAlternatingTile {

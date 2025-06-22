@@ -1,3 +1,5 @@
+// Google analytics component taken out of page component due to need to run client side. Is imported into client-layout.tsx, then into layout.tsx
+
 "use client";
 
 import { useEffect } from "react";

@@ -1,4 +1,6 @@
-// Frontpage queries
+// Sanity queries
+
+// Frontpage
 
 export const frontpageQuery = `*[_type == "homePage"][0]{
   frontpageTopBanner{
@@ -6,10 +8,14 @@ export const frontpageQuery = `*[_type == "homePage"][0]{
   frontpageTopBannerText,
   frontpageTopBannerLinkText,
   frontpageTopBannerLinkDestination,
+  frontpageTopBannerImageSmall{
+  asset->{_id, url},
+  alt
+},
   frontpageTopBannerImage{
       asset->{_id, url},
       alt
-    }
+    },
   },
   frontpageAlternatingTiles[]{
     frontpageAlternatingTilesHeading,
