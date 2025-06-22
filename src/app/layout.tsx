@@ -48,6 +48,8 @@ export default function RootLayout({
             `,
           }}
         />
+        <Script src="https://web.cmp.usercentrics.eu/modules/autoblocker.js" />
+        <Script id="usercentrics-cmp" src="https://web.cmp.usercentrics.eu/ui/loader.js" data-settings-id="CWoF1AuWdmx_BX" async />
         <LayoutClientWrapper>
           <Header />
           {children}
