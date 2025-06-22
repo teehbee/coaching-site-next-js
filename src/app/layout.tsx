@@ -35,24 +35,6 @@ export default function RootLayout({
       <body className={getFontClasses()}>
         <Script src="https://web.cmp.usercentrics.eu/modules/autoblocker.js" strategy="beforeInteractive" />
         <Script id="usercentrics-cmp" src="https://web.cmp.usercentrics.eu/ui/loader.js" data-settings-id="CWoF1AuWdmx_BX" strategy="beforeInteractive" />
-
-        {/* Google Analytics */}
-        {/* <Script src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`} strategy="afterInteractive" />
-        <Script
-          id="gtag-init"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}', {
-        anonymize_ip: true,
-        send_page_view: false
-      });
-    `,
-          }}
-        /> */}
         <LayoutClientWrapper>
           <Header />
           {children}

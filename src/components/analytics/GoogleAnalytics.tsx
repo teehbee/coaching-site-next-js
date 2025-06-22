@@ -8,11 +8,11 @@ import { usePathname } from "next/navigation";
 declare global {
   interface Window {
     dataLayer: unknown[];
+    gtag?: (...args: unknown[]) => void;
     Usercentrics?: {
       getConsents: () => { marketing: boolean };
       onConsentChanged: (callback: () => void) => void;
     };
-    gtag?: (...args: unknown[]) => void;
   }
 }
 
@@ -21,40 +21,50 @@ export function GoogleAnalytics() {
   const [consentGiven, setConsentGiven] = useState(false);
   const [scriptLoaded, setScriptLoaded] = useState(false);
 
-  // 1. Sjekk om bruker har gitt samtykke
+  // 1. Hent samtykke
   useEffect(() => {
     function checkConsent() {
-      if (window.Usercentrics) {
-        const consents = window.Usercentrics.getConsents();
-        const marketingConsent = consents.marketing;
-        setConsentGiven(marketingConsent);
-      }
+      const consents = window?.Usercentrics?.getConsents?.();
+      console.debug("[UC] Consents object:", consents);
+      const allowed = !!consents?.marketing;
+      console.debug("[UC] Marketing consent given:", allowed);
+      setConsentGiven(allowed);
     }
 
     checkConsent();
-
-    window.Usercentrics?.onConsentChanged(() => {
+    window?.Usercentrics?.onConsentChanged?.(() => {
+      console.debug("[UC] Consent changed – rechecking...");
       checkConsent();
     });
   }, []);
 
-  // 2. Last Google Analytics skript når samtykke gis
+  // 2. Last GA-script ved samtykke
   useEffect(() => {
     if (!consentGiven || scriptLoaded) return;
 
+    console.debug("[GA] Consent granted – injecting GA script...");
+
     const script = document.createElement("script");
-    script.src = `https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`;
+    const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
+
+    if (!GA_ID) {
+      console.warn("[GA] NEXT_PUBLIC_GA_ID is missing!");
+      return;
+    }
+
+    script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
     script.async = true;
     script.onload = () => {
-      window.dataLayer = window.dataLayer || [];
+      console.debug("[GA] GA script loaded.");
 
+      window.dataLayer = window.dataLayer || [];
       function gtag(...args: unknown[]) {
         window.dataLayer.push(args);
       }
 
       window.gtag = gtag;
       window.gtag("js", new Date());
-      window.gtag("config", process.env.NEXT_PUBLIC_GA_ID, {
+      window.gtag("config", GA_ID, {
         anonymize_ip: true,
         send_page_view: false,
       });
@@ -62,22 +72,26 @@ export function GoogleAnalytics() {
       setScriptLoaded(true);
     };
 
-    document.head.appendChild(script);
-
-    return () => {
-      document.head.removeChild(script);
+    script.onerror = () => {
+      console.error("[GA] Failed to load GA script.");
     };
+
+    document.head.appendChild(script);
   }, [consentGiven, scriptLoaded]);
 
   // 3. Send page_view ved rutenavigasjon
   useEffect(() => {
     if (!consentGiven || !scriptLoaded) return;
 
-    if (window.gtag) {
-      const url = window.location.pathname + window.location.search;
+    const url = window.location.pathname + window.location.search;
+    console.debug("[GA] Sending page_view for:", url);
+
+    if (typeof window.gtag === "function") {
       window.gtag("event", "page_view", {
         page_path: url,
       });
+    } else {
+      console.warn("[GA] gtag is not defined yet.");
     }
   }, [pathname, consentGiven, scriptLoaded]);
 
