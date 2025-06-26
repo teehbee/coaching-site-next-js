@@ -3,8 +3,7 @@ import Script from "next/script";
 import "../styles/styles.scss";
 import { Header, Footer } from "@/components/navigation";
 import { getFontClasses } from "@/lib/fonts";
-import GoogleAnalyticsConsent from "./analytics/GoogleAnalyticsConsent";
-// import { GoogleAnalytics } from "@next/third-parties/google";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 export const metadata: Metadata = {
   title: {
@@ -36,8 +35,8 @@ export default function RootLayout({
       <body className={getFontClasses()}>
         <Script src="https://web.cmp.usercentrics.eu/modules/autoblocker.js" strategy="beforeInteractive" />
         <Script id="usercentrics-cmp" src="https://web.cmp.usercentrics.eu/ui/loader.js" data-settings-id="CWoF1AuWdmx_BX" async strategy="afterInteractive" />
-        {/* <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID!} /> */}
-        <GoogleAnalyticsConsent />
+        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID!} />
+        {/* <GoogleAnalyticsConsent /> */}
         <Header />
         {children}
         <Footer />
