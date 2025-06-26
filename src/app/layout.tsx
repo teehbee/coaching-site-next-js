@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import "../styles/styles.scss";
 import { Header, Footer } from "@/components/navigation";
 import { getFontClasses } from "@/lib/fonts";
-import Head from "next/head";
-import Script from "next/script";
 
 import { GoogleAnalytics } from "@next/third-parties/google";
 
