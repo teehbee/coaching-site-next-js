@@ -1,6 +1,7 @@
 "use client";
 import { useEffect } from "react";
 
+// Utvider window-objektet med de nødvendige typene
 declare global {
   interface Window {
     UC_UI?: {
@@ -12,7 +13,7 @@ declare global {
       }[];
     };
     gtag?: (...args: unknown[]) => void;
-    dataLayer?: unknown[];
+    dataLayer?: object[];
   }
 }
 
@@ -52,16 +53,11 @@ export default function GoogleAnalyticsConsent() {
       }
     };
 
-    if (typeof window !== "undefined") {
-      const interval = setInterval(() => {
-        if (window.UC_UI?.onConsentStatusChange) {
-          console.log("[UC_UI] Listener registrert via polling");
-          window.UC_UI.onConsentStatusChange(loadGoogleAnalytics);
-          clearInterval(interval);
-        } else {
-          console.log("[UC_UI] Venter på CMP...");
-        }
-      }, 200);
+    if (typeof window !== "undefined" && window.UC_UI?.onConsentStatusChange) {
+      console.log("[UC_UI] Registrerer samtykkelytter");
+      window.UC_UI.onConsentStatusChange(loadGoogleAnalytics);
+    } else {
+      console.warn("[UC_UI] Ikke tilgjengelig – kan ikke registrere listener");
     }
   }, []);
 
