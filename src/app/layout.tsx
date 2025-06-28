@@ -31,11 +31,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="sv">
-      <head>
-        <Script src="https://web.cmp.usercentrics.eu/modules/autoblocker.js" strategy="beforeInteractive" />
-        <Script id="usercentrics-cmp" src="https://web.cmp.usercentrics.eu/ui/loader.js" data-settings-id="CWoF1AuWdmx_BX" async strategy="beforeInteractive" />
-      </head>
       <body className={getFontClasses()}>
+        <Script src="https://web.cmp.usercentrics.eu/modules/autoblocker.js" strategy="beforeInteractive" />
+        <Script id="usercentrics-cmp" src="https://web.cmp.usercentrics.eu/ui/loader.js" data-settings-id="CWoF1AuWdmx_BX" async />
         <Header />
         {children}
         <Footer />
