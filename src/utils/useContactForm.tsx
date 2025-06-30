@@ -11,6 +11,7 @@ export interface ContactData {
   name: string;
   email: string;
   message: string;
+  recaptchaToken?: string;
 }
 
 // Yup validation
@@ -40,10 +41,13 @@ export function useContactForm() {
     setFormSent(null);
 
     try {
+      const siteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!;
+      const token = await window.grecaptcha.execute(siteKey, { action: "submit" });
+
       const res = await fetch("/api/emailRoute", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+        body: JSON.stringify({ ...data, recaptchaToken: token }),
       });
 
       // Error if not okay
