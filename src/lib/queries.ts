@@ -34,6 +34,14 @@ export const frontpageQuery = `*[_type == "homePage"][0]{
       reviewSectionName
     }
   },
+   frontpageTextColumns[] {
+    frontpageTextColumnHeading,
+    frontpageTextColumnTextContent,
+  },
+  textColumnCTA {
+    textColumnCTALinkText,
+    textColumnCTALinkDestination
+  },
     frontpageLowerBanner{
     frontpageLowerBannerTitle,
     frontpageLowerBannerText,

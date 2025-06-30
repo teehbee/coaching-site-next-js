@@ -25,6 +25,16 @@ interface FrontpageAlternatingTile {
   frontpageAlternatingTilesImage: ImageType;
 }
 
+interface FrontpageTextColumn {
+  frontpageTextColumnHeading: string;
+  frontpageTextColumnTextContent: PortableTextBlock[];
+}
+
+interface TextColumnCTA {
+  textColumnCTALinkText: string;
+  textColumnCTALinkDestination: string;
+}
+
 interface FrontpageLowerBanner {
   frontpageLowerBannerTitle: string;
   frontpageLowerBannerText: PortableTextBlock[];
@@ -48,4 +58,6 @@ export interface HomePageInterface {
   frontpageAlternatingTiles: FrontpageAlternatingTile[];
   reviewsSection: ReviewsSection | null;
   frontpageLowerBanner: FrontpageLowerBanner;
+  frontpageTextColumns: FrontpageTextColumn[];
+  textColumnCTA: TextColumnCTA;
 }
