@@ -597,6 +597,10 @@ h6 {
     padding-bottom: 0;
   }
 
+  .pr-lg-50 {
+    padding-right: 50px;
+  }
+
   .pr-lg-60 {
     padding-right: 60px;
   }
@@ -658,6 +662,9 @@ h6 {
 }
 
 @media screen and (min-width: 1200px) {
+  .p-xl-45 {
+    padding: 45px;
+  }
   .pt-xl-75 {
     padding-top: 75px;
   }
