@@ -1,38 +1,61 @@
 "use client";
 
+import { useSanityData } from "@/utils";
+import { SiteSettingsInterface } from "@/data/interface/siteSettingsInterface";
+import { globalSettingsQuery } from "@/lib/queries";
+
 const PrivacyContent: React.FC = () => {
+  const settings = useSanityData<SiteSettingsInterface>(globalSettingsQuery);
+
+  if (!settings) {
+    return null;
+  }
+
   return (
     <section className="pb-45 pb-lg-90">
       <div className="container">
         <div className="row">
           <div className="col-12 col-lg-8 offset-lg-2">
             <h1 className="pb-15">Personvern og informasjonskapsler (cookies)</h1>
-            <p>Vi tar ditt personvern på alvor. Denne siden forklarer hvordan vi samler inn og bruker informasjon når du besøker vår nettside.</p>
+            <p>
+              Vi i <strong>{settings.siteTitle || "Firmanavn"}</strong> tar ditt personvern på alvor. Denne erklæringen forklarer hvordan vi samler inn, bruker og beskytter informasjonen din når du besøker nettsiden vår <strong>{settings.siteTitle || "URL"}</strong>. Vi ønsker å gi deg en trygg og transparent opplevelse på nett, samtidig som vi overholder gjeldende personvernregelverk.
+            </p>
             <div>
-              <p>
+              <p className="fs-1-rem-lg-1-25rem">
                 <strong>Informasjonsinnsamling</strong>
               </p>
-              <p>Når du besøker nettsiden vår, kan vi samle inn informasjon om din bruk for å forbedre tjenestene våre. Dette inkluderer data som IP-adresse, nettlesertype og sider du besøker.</p>
+              <p>Når du besøker nettsiden vår, registreres visse tekniske opplysninger automatisk. Dette kan inkludere din IP-adresse, hvilken nettleser og enhet du bruker, hvilket operativsystem du har, hvilke sider du besøker og tidspunktet for besøket. Informasjonen brukes utelukkende til teknisk drift, forbedring av innhold og analyse av brukeropplevelse. Vi bruker ikke denne informasjonen til å identifisere deg personlig.</p>
             </div>
             <div>
-              <p>
+              <p className="fs-1-rem-lg-1-25rem">
                 <strong>Informasjonskapsler (Cookies)</strong>
               </p>
-              <p>Vi bruker informasjonskapsler for å forbedre brukeropplevelsen på nettsiden. Informasjonskapsler er små tekstfiler som lagres på din enhet.</p>
+              <p>Nettsiden vår bruker informasjonskapsler, også kjent som cookies, for å forbedre brukeropplevelsen. En informasjonskapsel er en liten tekstfil som lagres i nettleseren din. Vi benytter nødvendige cookies som sørger for at nettsiden fungerer som den skal, og vi bruker også analytiske cookies for å forstå hvordan nettsiden brukes.</p>
               <p>
-                Vi benytter blant annet <strong>Google Analytics</strong> for å analysere trafikk og hvordan nettsiden brukes. Google Analytics bruker egne cookies for å samle inn anonymisert informasjon om besøket ditt. Disse dataene hjelper oss å forbedre nettsidens funksjonalitet og innhold.
+                Vi bruker <strong>Google Analytics</strong> for å samle inn anonym informasjon om hvordan besøkende navigerer og benytter innholdet vårt. Dette gjør det mulig for oss å forbedre strukturen og funksjonaliteten på nettstedet. Google Analytics lagrer ikke personlig identifiserbar informasjon, og IP-adresser anonymiseres.
               </p>
+              <p>Før vi setter cookies som ikke er strengt nødvendige, ber vi om ditt samtykke. Du kan når som helst endre dine samtykkevalg eller trekke dem tilbake via samtykkeverktøyet vårt, som vises nederst på nettsiden.</p>
             </div>
             <div>
-              <p>
-                <strong>Samtykke til bruk av cookies</strong>
+              <p className="fs-1-rem-lg-1-25rem">
+                <strong>Tredjepartsverktøy</strong>
               </p>
-              <p>For å overholde personvernregelverket krever vi ditt samtykke før vi aktiverer markedsførings- og analysecookies som Google Analytics. Du kan når som helst endre dine innstillinger eller trekke tilbake samtykket.</p>
             </div>
-            <p>
-              <strong>Kontakt oss</strong>
+            <p>Per i dag benytter vi kun Google Analytics for analyseformål. Dersom vi i fremtiden tar i bruk flere tredjepartsverktøy, vil denne erklæringen oppdateres med relevant informasjon om leverandør, formål og lenke til den aktuelle tjenestens personvernerklæring. Slike tjenester vil aldri aktiveres uten at du først har gitt et gyldig samtykke.</p>
+            <div>
+              <p className="fs-1-rem-lg-1-25rem">
+                <strong>Dine rettigheter</strong>
+              </p>
+              <p>Som bruker har du rett til innsyn i hvilke personopplysninger vi har lagret om deg, samt rett til å be om retting eller sletting av disse. Du kan også trekke tilbake samtykke eller reservere deg mot visse former for databehandling. Ved spørsmål om dine rettigheter eller behandlingen av personopplysninger, er du velkommen til å ta kontakt.</p>
+            </div>
+            <p className="fs-1-rem-lg-1-25rem">
+              <strong>Kontaktinformasjon</strong>
             </p>
-            <p>Hvis du har spørsmål om hvordan vi behandler dine data, kan du kontakte oss på [din e-postadresse].</p>
+            <p>Dersom du har spørsmål om vår personvernerklæring, informasjonskapsler eller hvordan vi behandler dine personopplysninger, kan du kontakte oss via følgende informasjon:</p>
+            <p>Firmanavn: {settings.siteTitle || "Firmanavn"}</p>
+            <p>E-post: {settings.contactEmail || "E-postadresse"}</p>
+            <p>Telefon: {settings.contactPhone || "Telefonnummer"}</p>
+            <p>Vi etterstreber å gi deg svar innen rimelig tid og alltid i henhold til gjeldende lover og forskrifter.</p>
           </div>
         </div>
       </div>
