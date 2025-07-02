@@ -1,5 +1,8 @@
 export interface SiteSettingsInterface {
   siteTitle: string;
+  companyTitle: string;
+  websiteUrl: string;
+  orgNumber: string;
   logoSmall: {
     asset: {
       _id: string;
@@ -16,6 +19,8 @@ export interface SiteSettingsInterface {
   };
   contactPhone?: string;
   contactEmail?: string;
+  contactAddress?: string;
+  contactZipAndCity?: string;
   facebookUrl?: string;
   instagramUrl?: string;
   linkedinUrl?: string;

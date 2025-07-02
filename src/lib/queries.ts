@@ -159,6 +159,9 @@ export const contactPageQuery = `*[_type == "contactPage"][0] {
 
 export const globalSettingsQuery = `*[_type == "siteSettings"][0] {
     siteTitle,
+    companyTitle,
+    websiteUrl,
+    orgNumber,
     logoSmall{
     asset->{_id, url},
       alt
@@ -169,6 +172,8 @@ export const globalSettingsQuery = `*[_type == "siteSettings"][0] {
     },
     contactPhone,
     contactEmail,
+    contactAddress,
+    contactZipAndCity,
     facebookUrl,
     instagramUrl,
     linkedinUrl

@@ -3,6 +3,7 @@
 import { useSanityData } from "@/utils";
 import { SiteSettingsInterface } from "@/data/interface/siteSettingsInterface";
 import { globalSettingsQuery } from "@/lib/queries";
+import Link from "next/link";
 
 const PrivacyContent: React.FC = () => {
   const settings = useSanityData<SiteSettingsInterface>(globalSettingsQuery);
@@ -18,7 +19,7 @@ const PrivacyContent: React.FC = () => {
           <div className="col-12 col-lg-8 offset-lg-2">
             <h1 className="pb-15">Personvern og informasjonskapsler (cookies)</h1>
             <p>
-              Vi i <strong>{settings.siteTitle || "Firmanavn"}</strong> tar ditt personvern på alvor. Denne erklæringen forklarer hvordan vi samler inn, bruker og beskytter informasjonen din når du besøker nettsiden vår <strong>{settings.siteTitle || "URL"}</strong>. Vi ønsker å gi deg en trygg og transparent opplevelse på nett, samtidig som vi overholder gjeldende personvernregelverk.
+              Vi i <strong>{settings.companyTitle || "Firmanavn"}</strong> tar ditt personvern på alvor. Denne erklæringen forklarer hvordan vi samler inn, bruker og beskytter informasjonen din når du besøker nettsiden vår <strong>{settings.websiteUrl || "URL"}</strong>. Vi ønsker å gi deg en trygg og transparent opplevelse på nett, samtidig som vi overholder gjeldende personvernregelverk.
             </p>
             <div>
               <p className="fs-1-rem-lg-1-25rem">
@@ -52,9 +53,35 @@ const PrivacyContent: React.FC = () => {
               <strong>Kontaktinformasjon</strong>
             </p>
             <p>Dersom du har spørsmål om vår personvernerklæring, informasjonskapsler eller hvordan vi behandler dine personopplysninger, kan du kontakte oss via følgende informasjon:</p>
-            <p>Firmanavn: {settings.siteTitle || "Firmanavn"}</p>
-            <p>E-post: {settings.contactEmail || "E-postadresse"}</p>
-            <p>Telefon: {settings.contactPhone || "Telefonnummer"}</p>
+            <p>
+              Firmanavn: <strong>{settings.companyTitle || "Firmanavn"}</strong>
+            </p>
+            <p>
+              {" "}
+              E-post:
+              <Link href={`mailto:${settings.contactEmail || "E-post mangler"}`}>
+                {" "}
+                <strong>{settings.contactEmail || "E-postadresse her"}</strong>
+              </Link>
+            </p>
+
+            <p>
+              {" "}
+              Telefon:
+              <Link href={`tel:${settings.contactPhone || "Telefonnummer mangler"}`}>
+                {" "}
+                <strong>{settings.contactPhone || "Telefonnummer her"}</strong>
+              </Link>
+            </p>
+            <p>
+              Adresse:{" "}
+              <strong>
+                {settings.contactAddress}, {settings.contactZipAndCity}
+              </strong>
+            </p>
+            <p>
+              Org nr: <strong>{settings.orgNumber || "Org nummer her"}</strong>
+            </p>
             <p>Vi etterstreber å gi deg svar innen rimelig tid og alltid i henhold til gjeldende lover og forskrifter.</p>
           </div>
         </div>
