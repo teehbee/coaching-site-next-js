@@ -1,6 +1,7 @@
 import { ContactContent } from "./ContactContent";
 import type { Metadata } from "next";
-import { getContactMetadata } from "@/lib/metadata/contactMetadata";
+import { getContactMetadata } from "@/lib/metadata/contactMetadata";¨
+import Script from "next/script";
 
 export async function generateMetadata(): Promise<Metadata> {
   const data = await getContactMetadata();
@@ -30,7 +31,15 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 const ContactPage = async () => {
-  return <ContactContent />;
+  return (
+    <>
+     <Script src={`https://www.google.com/recaptcha/api.js?render=${process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}`} />
+    <ContactContent />;
+    </>
+  )
+   
 };
 
 export default ContactPage;
+
+
