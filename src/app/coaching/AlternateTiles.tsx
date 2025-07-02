@@ -5,6 +5,7 @@ import { PortableText } from "@portabletext/react";
 import { CoachingPageInterface } from "@/data/interface/coachingPageInterface";
 import { coachingQuery } from "@/lib/queries";
 import { useSanityData } from "@/utils";
+import Link from "next/link";
 
 function AlternateImageTextTiles() {
   const settings = useSanityData<CoachingPageInterface>(coachingQuery);
@@ -34,6 +35,11 @@ function AlternateImageTextTiles() {
             </div>
           );
         })}
+        <div className="text-center">
+          <Link className="btn btn-primary" href="/kontakt">
+            Ta kontakt med meg i dag
+          </Link>
+        </div>
       </div>
     </section>
   );

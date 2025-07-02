@@ -4,6 +4,7 @@ import { CoachingPageInterface } from "@/data/interface/coachingPageInterface";
 import { coachingQuery } from "@/lib/queries";
 import { useSanityData } from "@/utils";
 import { PortableText } from "@portabletext/react";
+import Link from "next/link";
 
 import { QuoteIcon } from "../../assets/icon";
 
@@ -23,6 +24,11 @@ const QuoteSection: React.FC = () => {
               <PortableText value={settings.coachingPageQuoteText} />
             </div>
           </div>
+        </div>
+        <div className="text-center pt-30">
+          <Link className="btn btn-primary" href="/kontakt">
+            Kontakt meg for bestilling
+          </Link>
         </div>
       </div>
     </section>
