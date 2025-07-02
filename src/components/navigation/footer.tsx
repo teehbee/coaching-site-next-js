@@ -42,7 +42,7 @@ function Footer() {
               Personvern
             </Link>
           </div>
-          <div className="d-flex flex-wrap d-lg-none col-12 justify-content-between pt-15">
+          <div className="d-flex flex-wrap d-lg-none col-12 justify-content-center pt-15">
             <Link className="px-15 pb-5" href="coaching">
               Coaching
             </Link>
