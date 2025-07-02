@@ -73,12 +73,15 @@ const PrivacyContent: React.FC = () => {
                 <strong>{settings.contactPhone || "Telefonnummer her"}</strong>
               </Link>
             </p>
-            <p>
-              Adresse:{" "}
-              <strong>
-                {settings.contactAddress}, {settings.contactZipAndCity}
-              </strong>
-            </p>
+            {settings.contactAddress && (
+              <p>
+                Adresse:{" "}
+                <strong>
+                  {settings.contactAddress}, {settings.contactZipAndCity}
+                </strong>
+              </p>
+            )}
+
             <p>
               Org nr: <strong>{settings.orgNumber || "Org nummer her"}</strong>
             </p>
