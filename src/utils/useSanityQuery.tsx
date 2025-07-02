@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { client } from "@/lib/sanityClientClient";
+import { client } from "@/lib/sanityClient";
 
 function useSanityData<T>(query: string, params?: Record<string, unknown>) {
   const [data, setData] = useState<T | null>(null);

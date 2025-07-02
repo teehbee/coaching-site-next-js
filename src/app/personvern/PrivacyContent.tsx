@@ -6,7 +6,7 @@ const PrivacyContent: React.FC = () => {
       <div className="container">
         <div className="row">
           <div className="col-12 col-lg-8 offset-lg-2">
-            <h1 className="pb-5">Personvern og informasjonskapsler (cookies)</h1>
+            <h1 className="pb-15">Personvern og informasjonskapsler (cookies)</h1>
             <p>Vi tar ditt personvern på alvor. Denne siden forklarer hvordan vi samler inn og bruker informasjon når du besøker vår nettside.</p>
             <div>
               <p>
