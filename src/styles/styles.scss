@@ -216,6 +216,10 @@ h6 {
   font-weight: 500;
 }
 
+.fw-700 {
+  font-weight: 700;
+}
+
 // Utilities images
 
 .img-full {
@@ -379,6 +383,10 @@ h6 {
 
 .pt-15 {
   padding-top: 15px;
+}
+
+.pt-30 {
+  padding-top: 30px;
 }
 
 .px-0 {
@@ -553,6 +561,10 @@ h6 {
   }
 
   // Utilities sizing
+
+  .mh-lg-80px {
+    min-height: 80px;
+  }
 
   .img-350h-600 {
     height: 600px;
