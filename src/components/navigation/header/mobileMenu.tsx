@@ -2,7 +2,6 @@
 
 import { useSanityData } from "../../../utils";
 import { globalSettingsQuery } from "@/lib/queries";
-import Image from "next/image";
 import { NavLink } from "@/components/reusable";
 import Link from "next/link";
 import { useRef } from "react";
