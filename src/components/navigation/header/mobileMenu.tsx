@@ -8,6 +8,7 @@ import Link from "next/link";
 import { useRef } from "react";
 import { useMenuBehavior } from "../../../utils";
 import { SiteSettingsInterface } from "@/data/interface/siteSettingsInterface";
+import { LogoSVG } from "@/assets/icon";
 
 interface MobileMenuProps {
   isMenuOpen: boolean;
@@ -28,7 +29,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ onClose, isMenuOpen }) => {
       <div ref={menuRef} className={`mobile-menu ${isMenuOpen ? "open" : ""}`}>
         <div className="mobile-menu-header d-flex justify-content-between">
           <Link href="/">
-            <Image width={178} height={54} src={settings.logoSmall.asset.url} alt={settings.logoSmall.alt || settings.siteTitle} />
+            <LogoSVG />
           </Link>
           <button onClick={onClose} className="mobile-menu-close" aria-label="Close menu">
             <div className="bar bar1" />

@@ -21,7 +21,7 @@ const TopSection: React.FC = () => {
           </div>
           <div className="col-12 col-md-7 z-index-md-100 pr-md-30 pr-lg-60 mt-xl--75">
             <div className="mb-30">
-              <h1 className="fs-2-rem-lg-4rem mb-30 pos-relative custom-border-bottom custom-border-bottom-25-percent-tc-lg-te">{settings.aboutTopSection.aboutTopSectionTitle}</h1>
+              <h1 className="fs-1-5-rem-lg-3rem mb-30 pos-relative custom-border-bottom custom-border-bottom-25-percent-tc-lg-te">{settings.aboutTopSection.aboutTopSectionTitle}</h1>
               <div className="pb-15">
                 <PortableText value={settings.aboutTopSection.aboutTopSectionText} />
               </div>

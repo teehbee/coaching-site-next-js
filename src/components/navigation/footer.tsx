@@ -4,7 +4,7 @@ import Link from "next/link";
 
 import { useSanityData } from "@/utils";
 import { globalSettingsQuery } from "@/lib/queries";
-import { FacebookIcon, InstagramIcon, LinkedinIcon } from "../../assets/icon";
+import { FacebookIcon, InstagramIcon, LinkedinIcon, LogoSVG } from "../../assets/icon";
 import { SiteSettingsInterface } from "@/data/interface/siteSettingsInterface";
 
 function Footer() {
@@ -26,12 +26,9 @@ function Footer() {
               Om meg
             </Link>
           </div>
-          <div className="col-12 col-lg-4">
+          <div className="col-12 col-lg-4 footer-logo-wrapper">
             <Link href="/">
-              <picture>
-                <source srcSet={settings.logoLarge.asset.url} media="(min-width: 992px)" />
-                <img src={settings.logoSmall.asset.url} alt={settings.logoSmall.alt || settings.siteTitle} />
-              </picture>
+              <LogoSVG />
             </Link>
           </div>
           <div className="d-none d-lg-flex col-lg-4 justify-content-start">

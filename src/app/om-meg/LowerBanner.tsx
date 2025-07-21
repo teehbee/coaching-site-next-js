@@ -5,6 +5,7 @@ import { PortableText } from "@portabletext/react";
 import { useSanityData } from "@/utils";
 import { AboutPageInterface } from "@/data/interface/aboutPageInterface";
 import { aboutPageQuery } from "@/lib/queries";
+import Link from "next/link";
 
 const LowerBanner: React.FC = () => {
   const settings = useSanityData<AboutPageInterface>(aboutPageQuery);
@@ -23,6 +24,11 @@ const LowerBanner: React.FC = () => {
                 <h2 className="mb-15 pos-relative custom-border-bottom custom-border-bottom-25-percent-ts">{settings.aboutPageLowerBanner.aboutPageLowerBannerTitle}</h2>
                 <div>
                   <PortableText value={settings.aboutPageLowerBanner.aboutPageLowerBannerTextContent} />{" "}
+                </div>
+                <div className="pt-15">
+                  <Link className="btn btn-primary" href="/coaching">
+                    Les mer om coaching
+                  </Link>
                 </div>
               </div>
             </div>

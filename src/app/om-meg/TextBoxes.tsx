@@ -5,6 +5,7 @@ import { AboutPageInterface } from "@/data/interface/aboutPageInterface";
 import { aboutPageQuery } from "@/lib/queries";
 import { PortableText } from "@portabletext/react";
 import { CheckedSymbol } from "@/assets/icon";
+import Link from "next/link";
 
 const TextBoxes: React.FC = () => {
   const settings = useSanityData<AboutPageInterface>(aboutPageQuery);
@@ -34,6 +35,11 @@ const TextBoxes: React.FC = () => {
               </div>
             </div>
           ))}
+        </div>
+        <div className="text-center pt-30">
+          <Link className="btn btn-primary" href="/kontakt">
+            Ta kontakt for mer info
+          </Link>
         </div>
       </div>
     </section>
