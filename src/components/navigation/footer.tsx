@@ -4,8 +4,9 @@ import Link from "next/link";
 
 import { useSanityData } from "@/utils";
 import { globalSettingsQuery } from "@/lib/queries";
-import { FacebookIcon, InstagramIcon, LinkedinIcon, LogoSVG } from "../../assets/icon";
+import { FacebookIcon, InstagramIcon, LinkedinIcon } from "../../assets/icon";
 import { SiteSettingsInterface } from "@/data/interface/siteSettingsInterface";
+import Image from "next/image";
 
 function Footer() {
   const settings = useSanityData<SiteSettingsInterface>(globalSettingsQuery);
@@ -28,7 +29,7 @@ function Footer() {
           </div>
           <div className="col-12 col-lg-4 footer-logo-wrapper">
             <Link href="/">
-              <LogoSVG />
+              <Image width={229} height={71} src="/assets/logo/logo_final.png" alt="logo" />
             </Link>
           </div>
           <div className="d-none d-lg-flex col-lg-4 justify-content-start">

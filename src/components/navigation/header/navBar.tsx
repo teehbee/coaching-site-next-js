@@ -5,7 +5,7 @@ import { globalSettingsQuery } from "@/lib/queries";
 import Link from "next/link";
 import { NavLink } from "@/components/reusable";
 import { SiteSettingsInterface } from "@/data/interface/siteSettingsInterface";
-import { LogoSVG } from "@/assets/icon";
+import Image from "next/image";
 
 interface NavbarProps {
   onMenuToggle: () => void;
@@ -21,7 +21,7 @@ const Navbar: React.FC<NavbarProps> = ({ onMenuToggle }) => {
     <nav role="navigation">
       <div className="container-fluid d-flex justify-content-between nav-container">
         <Link href="/" aria-label="Link til forsiden">
-          <LogoSVG />
+          <Image width={229} height={71} src="/assets/logo/logo_final.png" alt="logo" />
         </Link>
         <div className="nav-desktop-and-menu-toggle d-flex align-items-center">
           <div className="nav-desktop-links d-none d-lg-block">
