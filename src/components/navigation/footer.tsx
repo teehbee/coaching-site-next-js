@@ -24,7 +24,7 @@ function Footer() {
               Coaching
             </Link>
             <Link className="pr-50" href="/om-meg">
-              Om meg
+              Om mig
             </Link>
           </div>
           <div className="col-12 col-lg-4 footer-logo-wrapper">
@@ -37,7 +37,7 @@ function Footer() {
               Kontakt
             </Link>
             <Link className="pl-50" href="personvern">
-              Personvern
+              Integritetspolicy
             </Link>
           </div>
           <div className="d-flex flex-wrap d-lg-none col-12 justify-content-center pt-15">
@@ -51,7 +51,7 @@ function Footer() {
               Kontakt
             </Link>
             <Link className="px-15 pb-5" href="personvern">
-              Personvern
+              Integritetspolicy
             </Link>
           </div>
         </div>
@@ -79,10 +79,10 @@ function Footer() {
         </div>
         <div className="row">
           <div className="col-12 fs-0-75-rem-lg-0-875rem d-flex justify-content-between py-15">
-            <div>© 2025 {settings.siteTitle}. Alle rettigheter reservert.</div>
+            <div>© 2025 {settings.siteTitle}. Alla rättigheter förbehållna</div>
             <div>
-              Nettside og design levert av{" "}
-              <a target="_blank" href="https://thbergseng-portfolio-2.netlify.app/">
+              Webbplats och design levererad av{" "}
+              <a target="_blank" href="https://thb-design.no/">
                 THbergseng Design
               </a>
             </div>

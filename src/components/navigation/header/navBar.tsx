@@ -26,13 +26,13 @@ const Navbar: React.FC<NavbarProps> = ({ onMenuToggle }) => {
         <div className="nav-desktop-and-menu-toggle d-flex align-items-center">
           <div className="nav-desktop-links d-none d-lg-block">
             <NavLink activeClassName="nav-active" className="nav-desktop-link" href="/">
-              Forside
+              Hem
             </NavLink>
             <NavLink activeClassName="nav-active" className="nav-desktop-link" href="/coaching">
               Coaching
             </NavLink>
             <NavLink activeClassName="nav-active" className="nav-desktop-link" href="/om-meg">
-              Om meg
+              Om mig
             </NavLink>
             <NavLink activeClassName="nav-active" className="nav-desktop-link" href="/kontakt">
               Kontakt

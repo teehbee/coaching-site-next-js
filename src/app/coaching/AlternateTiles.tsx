@@ -37,7 +37,7 @@ function AlternateImageTextTiles() {
         })}
         <div className="text-center">
           <Link className="btn btn-primary" href="/kontakt">
-            Ta kontakt med meg i dag
+            kontakta mig idag
           </Link>
         </div>
       </div>

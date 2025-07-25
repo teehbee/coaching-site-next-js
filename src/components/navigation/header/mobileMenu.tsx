@@ -38,13 +38,13 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ onClose, isMenuOpen }) => {
         <div className="mobile-menu-wrapper d-flex flex-column justify-content-center">
           <nav className="d-flex flex-column text-center">
             <NavLink activeClassName="nav-active" href="/" onClick={onClose}>
-              Forside
+              Hem
             </NavLink>
             <NavLink activeClassName="nav-active" href="/coaching" onClick={onClose}>
               Coaching
             </NavLink>
             <NavLink activeClassName="nav-active" href="/om-meg" onClick={onClose}>
-              Om meg
+              Om mig
             </NavLink>
             <NavLink activeClassName="nav-active" href="/kontakt" onClick={onClose}>
               Kontakt
