@@ -12,7 +12,6 @@ async function verifyRecaptcha(token: string): Promise<boolean> {
   const secret = process.env.RECAPTCHA_SECRET_KEY;
 
   if (!secret) {
-    console.error("Mangler RECAPTCHA_SECRET_KEY i miljøvariabler");
     return false;
   }
 
