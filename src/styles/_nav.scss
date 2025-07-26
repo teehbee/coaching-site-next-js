@@ -29,7 +29,7 @@ header {
   z-index: 200;
   transition: all 0.3s ease;
   // Adjust as needed
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 
   img {
     width: 200px !important;
@@ -79,7 +79,7 @@ header {
   transform: translateX(100%);
   transition: transform 0.3s ease-in-out;
   z-index: 1100;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
   &.open {
     transform: translateX(0);
   }
