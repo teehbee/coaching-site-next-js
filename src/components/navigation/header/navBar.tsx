@@ -21,7 +21,7 @@ const Navbar: React.FC<NavbarProps> = ({ onMenuToggle }) => {
     <nav role="navigation">
       <div className="container-fluid d-flex justify-content-between nav-container">
         <Link href="/" aria-label="Link til forsiden">
-          <Image width={229} height={71} src="/assets/logo/logo_final.png" alt="logo" />
+          <Image width={229} height={71} src="/assets/logo/logo_final.png" alt="" />
         </Link>
         <div className="nav-desktop-and-menu-toggle d-flex align-items-center">
           <div className="nav-desktop-links d-none d-lg-block">
@@ -31,7 +31,7 @@ const Navbar: React.FC<NavbarProps> = ({ onMenuToggle }) => {
             <NavLink activeClassName="nav-active" className="nav-desktop-link" href="/coaching">
               Coaching
             </NavLink>
-            <NavLink activeClassName="nav-active" className="nav-desktop-link" href="/om-meg">
+            <NavLink activeClassName="nav-active" className="nav-desktop-link" href="/om-mig">
               Om mig
             </NavLink>
             <NavLink activeClassName="nav-active" className="nav-desktop-link" href="/kontakt">

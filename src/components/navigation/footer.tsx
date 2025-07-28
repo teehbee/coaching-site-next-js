@@ -23,7 +23,7 @@ function Footer() {
             <Link className="pr-50" href="/coaching">
               Coaching
             </Link>
-            <Link className="pr-50" href="/om-meg">
+            <Link className="pr-50" href="/om-mig">
               Om mig
             </Link>
           </div>
@@ -44,7 +44,7 @@ function Footer() {
             <Link className="px-15 pb-5" href="coaching">
               Coaching
             </Link>
-            <Link className="px-15 pb-5" href="om-meg">
+            <Link className="px-15 pb-5" href="om-mig">
               Om meg
             </Link>
             <Link className="px-15 pb-5" href="kontakt">

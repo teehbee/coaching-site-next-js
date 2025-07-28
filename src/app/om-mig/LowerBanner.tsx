@@ -27,7 +27,7 @@ const LowerBanner: React.FC = () => {
                 </div>
                 <div className="pt-15">
                   <Link className="btn btn-primary" href="/coaching">
-                    Les mer om coaching
+                    Läs mer om coaching
                   </Link>
                 </div>
               </div>
