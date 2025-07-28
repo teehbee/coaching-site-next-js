@@ -38,7 +38,7 @@ const TextBoxes: React.FC = () => {
         </div>
         <div className="text-center pt-30">
           <Link className="btn btn-primary" href="/kontakt">
-            Ta kontakt for mer info
+            Kontakta mig för mer information
           </Link>
         </div>
       </div>

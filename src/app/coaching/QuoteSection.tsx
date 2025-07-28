@@ -27,7 +27,7 @@ const QuoteSection: React.FC = () => {
         </div>
         <div className="text-center pt-30">
           <Link className="btn btn-primary" href="/kontakt">
-            Kontakt meg for bestilling
+            Kontakta mig för bokning
           </Link>
         </div>
       </div>
