@@ -43,7 +43,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ onClose, isMenuOpen }) => {
             <NavLink activeClassName="nav-active" href="/coaching" onClick={onClose}>
               Coaching
             </NavLink>
-            <NavLink activeClassName="nav-active" href="/om-meg" onClick={onClose}>
+            <NavLink activeClassName="nav-active" href="/om-mig" onClick={onClose}>
               Om mig
             </NavLink>
             <NavLink activeClassName="nav-active" href="/kontakt" onClick={onClose}>

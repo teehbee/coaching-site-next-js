@@ -18,12 +18,12 @@ const ContactForm: React.FC = () => {
       <div className="container">
         <div className="row align-items-stretch px-15 px-lg-0">
           <div className="col-12 col-lg-6 offset-lg-1 alt-bg-color border-radius-5 border-radius-lg-5-left p-30">
-            <h2 className="pos-relative custom-border-bottom custom-border-bottom-25-percent-ts mb-15">Kontakt meg i dag</h2>
+            <h2 className="pos-relative custom-border-bottom custom-border-bottom-25-percent-ts mb-15">Kontakta mig idag</h2>
             <form onSubmit={handleSubmit(onSubmit)}>
               <div className="row">
                 <div className="col-12 col-lg-6 pb-15">
                   <label className="pb-5" htmlFor="name">
-                    Name
+                    Namn
                   </label>
                   <div className="input-wrapper">
                     <input type="text" id="name" {...register("name")} onChange={() => clearErrors("name")} />
@@ -33,7 +33,7 @@ const ContactForm: React.FC = () => {
                 </div>
                 <div className="col-12 col-lg-6 pb-15">
                   <label className="pb-5" htmlFor="email">
-                    E-postadresse
+                    E-postadress
                   </label>
                   <div className="input-wrapper">
                     <input type="email" id="email" {...register("email")} onChange={() => clearErrors("email")} />
@@ -43,7 +43,7 @@ const ContactForm: React.FC = () => {
                 </div>
                 <div className="col-12 pb-15">
                   <label className="pb-5" htmlFor="message">
-                    Melding
+                    Meddelande
                   </label>
                   <div className="input-wrapper">
                     <textarea id="message" {...register("message")} onChange={() => clearErrors("message")} />
@@ -61,7 +61,7 @@ const ContactForm: React.FC = () => {
                 {formSent === "error" && <div className="contact-error-message">Noe gikk galt. Prøv igjen senere.</div>}
               </div>
               <div className="fs-0-75-rem-lg-0-875rem">
-                Felt merket <span className="info-bookmark"></span> er påkrevd
+                Meddelanden markerade med <span className="info-bookmark"></span> är obligatoriska
               </div>
             </form>
           </div>
