@@ -47,7 +47,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ onClose, isMenuOpen }) => {
               Om mig
             </NavLink>
             <NavLink activeClassName="nav-active" href="/kontakt" onClick={onClose}>
-              Kontakt
+              Kontakta mig
             </NavLink>
           </nav>
         </div>

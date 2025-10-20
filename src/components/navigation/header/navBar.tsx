@@ -35,7 +35,7 @@ const Navbar: React.FC<NavbarProps> = ({ onMenuToggle }) => {
               Om mig
             </NavLink>
             <NavLink activeClassName="nav-active" className="nav-desktop-link" href="/kontakt">
-              Kontakt
+              Kontakta mig
             </NavLink>
           </div>
           <div onClick={onMenuToggle} className="d-block d-lg-none menu-toggle" aria-label="Open menu">

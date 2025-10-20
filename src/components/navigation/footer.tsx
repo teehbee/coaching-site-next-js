@@ -45,10 +45,10 @@ function Footer() {
               Coaching
             </Link>
             <Link className="px-15 pb-5" href="om-mig">
-              Om meg
+              Om mig
             </Link>
             <Link className="px-15 pb-5" href="kontakt">
-              Kontakt
+              Kontakta mig
             </Link>
             <Link className="px-15 pb-5" href="personvern">
               Integritetspolicy
