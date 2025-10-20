@@ -20,7 +20,7 @@ const HomepageTopSection: React.FC = () => {
         <div className="row">
           <div className="col-10 col-sm-8 offset-1 offset-sm-4 col-md-4 offset-md-8 px-0">
             <picture>
-              <source media="(max-width: 675px)" srcSet={settings.frontpageTopBanner.frontpageTopBannerImageSmall.asset.url} />
+              <source media="(max-width: 575px)" srcSet={settings.frontpageTopBanner.frontpageTopBannerImageSmall.asset.url} />
               <Image priority width={600} height={650} className="img-full" src={settings.frontpageTopBanner.frontpageTopBannerImage.asset.url} alt={settings.frontpageTopBanner.frontpageTopBannerImage.alt || "Bildebeskrivelse mangler"} />
             </picture>
           </div>
