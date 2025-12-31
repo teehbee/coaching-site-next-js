@@ -1,5 +1,13 @@
-@import "/node_modules/bootstrap/scss/bootstrap-reboot.scss";
-@import "/node_modules/bootstrap/scss/bootstrap-grid.scss";
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/variables-dark";
+@import "bootstrap/scss/maps";
+@import "bootstrap/scss/mixins";
+
+// 2) Kun CSS-delene du vil ha
+@import "bootstrap/scss/reboot";
+@import "bootstrap/scss/bootstrap-grid";
+
 @import "./nav";
 @import "./font-sizes";
 @import "./custom";
