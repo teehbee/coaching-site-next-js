@@ -15,11 +15,16 @@ const HomepageTopSection: React.FC = () => {
   }
 
   return (
-    <section className="main-bg-color h-80vh">
+    <section className="main-bg-color">
       <div className="container pt-90">
-        <div className="row pb-45 align-items-center">
+        <div className="row pb-45 align-items-center flex-row-reverse">
           {/* Col nummer 1 */}
-          <div className="col-12 col-md-7 text-center text-lg-start d-flex flex-column align-items-center justicy-content-center">
+          <div className="col-12 col-md-5 pb-30">
+            <div className="">
+              <Image priority width={500} height={550} className="img-cover border-radius-5 mh-600px" src={settings.frontpageTopBanner.frontpageTopBannerImage.asset.url} alt={settings.frontpageTopBanner.frontpageTopBannerImage.alt || "Bildebeskrivelse mangler"} />
+            </div>
+          </div>
+          <div className="col-12 col-md-7 text-center text-lg-start d-flex flex-column align-items-center align-items-md-start justicy-content-center mt-lg--150">
             <div>
               <h1 className="fs-2-rem-lg-4rem">{settings.frontpageTopBanner.frontpageTopBannerTitle}</h1>
             </div>
@@ -29,9 +34,6 @@ const HomepageTopSection: React.FC = () => {
             </Link>
           </div>
           {/* Col nummer 2 */}
-          <div className="col-10 offset-1 offset-md-0 col-md-5">
-            <Image priority width={500} height={550} className="img-cover" src={settings.frontpageTopBanner.frontpageTopBannerImage.asset.url} alt={settings.frontpageTopBanner.frontpageTopBannerImage.alt || "Bildebeskrivelse mangler"} />
-          </div>
         </div>
       </div>
     </section>

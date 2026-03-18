@@ -246,6 +246,10 @@ h6 {
   height: 350px;
 }
 
+.mh-600px {
+  max-height: 600px;
+}
+
 .mw-400px {
   max-width: 400px;
 }
@@ -518,6 +522,10 @@ h6 {
     right: 0;
     bottom: 0;
     left: 0;
+  }
+
+  .pt-md-0 {
+    padding-bottom: 0;
   }
 
   .pr-md-30 {
