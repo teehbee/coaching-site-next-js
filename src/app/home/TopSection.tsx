@@ -15,29 +15,22 @@ const HomepageTopSection: React.FC = () => {
   }
 
   return (
-    <section className="main-bg-color">
-      <div className="container-fluid pos-relative pt-lg-45">
-        <div className="row">
-          <div className="col-10 col-sm-8 offset-1 offset-sm-4 col-md-4 offset-md-8 px-0">
-            <picture>
-              <source media="(max-width: 575px)" srcSet={settings.frontpageTopBanner.frontpageTopBannerImageSmall.asset.url} />
-              <Image priority width={600} height={650} className="img-full" src={settings.frontpageTopBanner.frontpageTopBannerImage.asset.url} alt={settings.frontpageTopBanner.frontpageTopBannerImage.alt || "Bildebeskrivelse mangler"} />
-            </picture>
-          </div>
-        </div>
-        <div className="overlay-sm">
-          <div className="container d-flex flex-column h-100">
-            <div className="row align-items-center">
-              <div className="col-12 col-sm-8 col-md-6 text-center text-sm-start py-30 pt-xl-75">
-                <div>
-                  <h1 className="fs-2-rem-lg-4rem pos-relative custom-border-bottom custom-border-bottom-25-percent-tc-sm-ts">{settings.frontpageTopBanner.frontpageTopBannerTitle}</h1>
-                </div>
-                <div className="fs-1-5-rem-lg-2rem pb-30">{settings.frontpageTopBanner.frontpageTopBannerText}</div>
-                <Link className="btn btn-primary align-self-center align-self-lg-start" href={settings.frontpageTopBanner.frontpageTopBannerLinkDestination}>
-                  {settings.frontpageTopBanner.frontpageTopBannerLinkText}
-                </Link>
-              </div>
+    <section className="main-bg-color h-80vh">
+      <div className="container pt-90">
+        <div className="row pb-45 align-items-center">
+          {/* Col nummer 1 */}
+          <div className="col-12 col-md-7 text-center text-lg-start d-flex flex-column align-items-center justicy-content-center">
+            <div>
+              <h1 className="fs-2-rem-lg-4rem">{settings.frontpageTopBanner.frontpageTopBannerTitle}</h1>
             </div>
+            <div className="fs-1-5-rem-lg-2rem pb-30">{settings.frontpageTopBanner.frontpageTopBannerText}</div>
+            <Link className="btn btn-primary" href={settings.frontpageTopBanner.frontpageTopBannerLinkDestination}>
+              {settings.frontpageTopBanner.frontpageTopBannerLinkText}
+            </Link>
+          </div>
+          {/* Col nummer 2 */}
+          <div className="col-10 offset-1 offset-md-0 col-md-5">
+            <Image priority width={500} height={550} className="img-cover" src={settings.frontpageTopBanner.frontpageTopBannerImage.asset.url} alt={settings.frontpageTopBanner.frontpageTopBannerImage.alt || "Bildebeskrivelse mangler"} />
           </div>
         </div>
       </div>
