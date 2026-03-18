@@ -15,14 +15,12 @@ const HomepageTopSection: React.FC = () => {
   }
 
   return (
-    <section className="main-bg-color">
-      <div className="container pt-90">
-        <div className="row pb-45 align-items-center flex-row-reverse">
+    <section className="main-bg-color h-100vh">
+      <div className="container">
+        <div className="row align-items-center flex-row-reverse pt-90 pt-lg-105">
           {/* Col nummer 1 */}
-          <div className="col-12 col-md-5 pb-30">
-            <div className="">
-              <Image priority width={500} height={550} className="img-cover border-radius-5 mh-600px" src={settings.frontpageTopBanner.frontpageTopBannerImage.asset.url} alt={settings.frontpageTopBanner.frontpageTopBannerImage.alt || "Bildebeskrivelse mangler"} />
-            </div>
+          <div className="col-12 col-md-5">
+            <Image priority width={500} height={550} className="img-cover border-radius-5 mh-600px" src={settings.frontpageTopBanner.frontpageTopBannerImage.asset.url} alt={settings.frontpageTopBanner.frontpageTopBannerImage.alt || "Bildebeskrivelse mangler"} />
           </div>
           <div className="col-12 col-md-7 text-center text-lg-start d-flex flex-column align-items-center align-items-md-start justicy-content-center mt-lg--150">
             <div>
