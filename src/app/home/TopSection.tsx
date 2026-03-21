@@ -18,11 +18,12 @@ const HomepageTopSection: React.FC = () => {
     <section className="main-bg-color h-100vh">
       <div className="container">
         <div className="row align-items-center flex-row-reverse pt-90 pt-lg-105">
-          {/* Col nummer 1 */}
-          <div className="col-12 col-md-5">
-            <Image priority width={500} height={550} className="img-cover border-radius-5 mh-600px" src={settings.frontpageTopBanner.frontpageTopBannerImage.asset.url} alt={settings.frontpageTopBanner.frontpageTopBannerImage.alt || "Bildebeskrivelse mangler"} />
+          {/* Image column */}
+          <div className="col-12 col-lg-5">
+            <Image priority width={500} height={550} className="img-cover border-radius-5 pb-lg-0 mh-600px pb-30" src={settings.frontpageTopBanner.frontpageTopBannerImage.asset.url} alt={settings.frontpageTopBanner.frontpageTopBannerImage.alt || "Bildebeskrivelse mangler"} />
           </div>
-          <div className="col-12 col-md-7 text-center text-lg-start d-flex flex-column align-items-center align-items-md-start justicy-content-center mt-lg--150">
+          {/* Text column */}
+          <div className="col-12 col-lg-7 text-center text-lg-start d-flex flex-column align-items-center align-items-md-start justicy-content-center mt-lg--150">
             <div>
               <h1 className="fs-2-rem-lg-4rem">{settings.frontpageTopBanner.frontpageTopBannerTitle}</h1>
             </div>
@@ -31,7 +32,6 @@ const HomepageTopSection: React.FC = () => {
               {settings.frontpageTopBanner.frontpageTopBannerLinkText}
             </Link>
           </div>
-          {/* Col nummer 2 */}
         </div>
       </div>
     </section>
